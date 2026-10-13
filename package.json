@@ -5,8 +5,15 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "prebuild": "node scripts/media.mjs",
+    "postbuild": "node scripts/csp.mjs",
+    "typecheck": "tsc --noEmit",
+    "media": "node scripts/media.mjs",
+    "video": "sh scripts/video.sh",
+    "preview": "npx wrangler@4 pages dev out",
+    "predev": "node scripts/media.mjs",
+    "font": "sh scripts/font.sh"
   },
   "dependencies": {
     "next": "16.4.0",

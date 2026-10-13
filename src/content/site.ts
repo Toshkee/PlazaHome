@@ -27,6 +27,11 @@ export const site = {
    */
   address: null as null | { street: string; city: string; mapsUrl: string },
 
+  /** Boja trake browsera na telefonu; ista kao --color-primary u globals.css. */
+  themeColor: "#26546c",
+  description:
+    "Zavjese, draperije, rolo i rimske zavjese, drveni venecijaneri i tapete po mjeri. Mjerenje, šivenje i montaža za stanove, vile, hotele i restorane u Crnoj Gori.",
+
   /** Autor hero snimka (FPV dron), potpis u podnožju. */
   videoCredit: {
     name: "Djurišić Media",
