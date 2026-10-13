@@ -42,3 +42,6 @@ next-env.d.ts
 
 # generated images (scripts/media.mjs regenerates them before every build)
 /public/media/
+
+# local Cloudflare Pages dev server state
+/.wrangler/
