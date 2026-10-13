@@ -28,8 +28,16 @@ npm run typecheck
 
 ## Koncept na Vercelu
 
-Vercel → Add New → Project → uvezi GitHub repo. Vercel sam prepozna Next.js; ništa ne treba mijenjati
-(build command `npm run build`, statički export u `out/`).
+Objavljeno na https://plazahome.vercel.app (Vercel projekat `plazahome`). Nova verzija:
+
+```sh
+npx vercel@latest deploy --prod
+```
+
+`vercel.json` kaže Vercelu da je ovo statički sajt iz `out/` (Next.js preset sa `output: "export"`
+objavi samo `public/`) i uključuje `cleanUrls`, pa `/o-nama` servira `o-nama.html`.
+Build na Vercelu traje oko 5 minuta, jer se slike svaki put prave iznova (`scripts/media.mjs`).
+Projekat nije vezan za GitHub; za objavu na svaki push: `npx vercel@latest git connect`.
 
 Na Vercelu se sajt ponaša kao koncept (`src/content/site.ts`, `isConcept`):
 

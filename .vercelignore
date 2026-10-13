@@ -1,0 +1,5 @@
+# Lokalni build i stanje alata; Vercel sve pravi sam (npm run build).
+/out
+/.next
+/.wrangler
+/public/media
