@@ -9,7 +9,7 @@ import { SiteHeader } from "@/components/site-header";
 import { Testimonial } from "@/components/testimonial";
 import { site } from "@/content/site";
 
-// LocalBusiness samo sa podacima iz briefa; adresa nije poznata pa je navedena samo država.
+// LocalBusiness samo sa podacima iz briefa; dok adresa ne stigne, navodi se samo država.
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
@@ -22,7 +22,12 @@ const structuredData = {
   image: `${site.url}/og.jpg`,
   logo: `${site.url}/icon-512.png`,
   sameAs: [site.instagram.url],
-  address: { "@type": "PostalAddress", addressCountry: "ME" },
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "ME",
+    ...(site.address && { streetAddress: site.address.street, addressLocality: site.address.city }),
+  },
+  ...(site.address && { hasMap: site.address.mapsUrl }),
 };
 
 export default function Home() {
