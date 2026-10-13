@@ -1,10 +1,17 @@
-// Tekst sekcije „O nama”. Izvori: brief klijenta i opisi objava na @plazahome.me.
+// Tekst stranice „O nama”. Izvori: brief klijenta i opisi objava na @plazahome.me.
 
 export const about = {
-  title: "Opremamo prostore po mjeri već 30 godina",
+  title: ["Opremamo prostore", "po mjeri", "već 30 godina"],
+  accent: [1],
   paragraphs: [
     "Plaza Home oprema stanove, kuće, luksuzne vile, hotele i restorane. Radimo zavjese, draperije i različite sisteme za zaštitu od sunca.",
     "Svaki posao radimo od početka do kraja: dođemo, izmjerimo, sašijemo i montiramo.",
+  ],
+  /** Brojke koje se odbrojavaju na skrol. */
+  numbers: [
+    { value: 30, suffix: "", label: "godina iskustva", prefix: "" },
+    { value: 6, suffix: " m", label: "visine zavjesa koje šijemo", prefix: "do " },
+    { value: 4, suffix: "", label: "koraka, od savjeta do montaže", prefix: "" },
   ],
   /** Koraci rada, iz objave klijenta za Luštica Bay. */
   steps: [

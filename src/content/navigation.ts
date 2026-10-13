@@ -1,7 +1,8 @@
-// Sidra sekcija na stranici, redom kojim se pojavljuju.
+// Stranice sajta, redom kojim stoje u meniju.
 export const navigation = [
-  { href: "#o-nama", label: "O nama" },
-  { href: "#proizvodi", label: "Proizvodi" },
-  { href: "#radovi", label: "Radovi" },
-  { href: "#kontakt", label: "Kontakt" },
+  { href: "/o-nama", label: "O nama" },
+  { href: "/radovi", label: "Radovi" },
+  { href: "/klijenti", label: "Klijenti" },
+  { href: "/proizvodi", label: "Proizvodi" },
+  { href: "/kontakt", label: "Kontakt" },
 ] as const;

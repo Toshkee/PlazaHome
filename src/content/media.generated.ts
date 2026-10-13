@@ -553,6 +553,46 @@ export const media = {
         "src": "/media/logo-406-e6327618.webp"
       }
     ]
+  },
+  "logo-mark": {
+    "width": 812,
+    "height": 312,
+    "avif": [
+      {
+        "width": 240,
+        "src": "/media/logo-mark-240-a2795c05.avif"
+      },
+      {
+        "width": 400,
+        "src": "/media/logo-mark-400-a2795c05.avif"
+      },
+      {
+        "width": 600,
+        "src": "/media/logo-mark-600-a2795c05.avif"
+      },
+      {
+        "width": 812,
+        "src": "/media/logo-mark-812-a2795c05.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 240,
+        "src": "/media/logo-mark-240-a2795c05.webp"
+      },
+      {
+        "width": 400,
+        "src": "/media/logo-mark-400-a2795c05.webp"
+      },
+      {
+        "width": 600,
+        "src": "/media/logo-mark-600-a2795c05.webp"
+      },
+      {
+        "width": 812,
+        "src": "/media/logo-mark-812-a2795c05.webp"
+      }
+    ]
   }
 } as const satisfies Record<string, MediaImage>;
 

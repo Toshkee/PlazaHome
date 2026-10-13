@@ -1,13 +1,14 @@
-import { About } from "@/components/about";
-import { Contact } from "@/components/contact";
-import { ContactBar } from "@/components/contact-bar";
-import { Gallery } from "@/components/gallery";
-import { Hero } from "@/components/hero";
-import { Products } from "@/components/products";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
-import { Testimonial } from "@/components/testimonial";
+import { Cta } from "@/components/cta";
+import { ClientsTeaser } from "@/components/home/clients-teaser";
+import { Hero } from "@/components/home/hero";
+import { Intro } from "@/components/home/intro";
+import { Services } from "@/components/home/services";
+import { WorkRail } from "@/components/home/work-rail";
+import { PageShell } from "@/components/page-shell";
 import { site } from "@/content/site";
+import { pageMetadata } from "@/lib/metadata";
+
+export const metadata = pageMetadata({ description: site.description, path: "/" });
 
 // LocalBusiness samo sa podacima iz briefa; dok adresa ne stigne, navodi se samo država.
 const structuredData = {
@@ -32,28 +33,14 @@ const structuredData = {
 
 export default function Home() {
   return (
-    <>
-      <a
-        href="#sadrzaj"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded-base focus:bg-background focus:px-4 focus:py-3"
-      >
-        Preskoči na sadržaj
-      </a>
-      <SiteHeader />
-      <main id="sadrzaj">
-        <Hero />
-        <About />
-        <Products />
-        <Gallery />
-        <Testimonial />
-        <Contact />
-      </main>
-      <SiteFooter />
-      <ContactBar />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
-    </>
+    <PageShell>
+      <Hero />
+      <Intro />
+      <WorkRail />
+      <Services />
+      <ClientsTeaser />
+      <Cta />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+    </PageShell>
   );
 }

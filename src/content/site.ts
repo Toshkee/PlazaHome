@@ -1,9 +1,17 @@
 // Osnovni podaci o firmi. Sve kontakt akcije na sajtu čitaju odavde.
 
+/**
+ * Koncept na Vercelu: Vercel pri buildu daje svoj domen, pa Open Graph slika
+ * i kanonske adrese pokazuju na njega (pregled linka u porukama ima sliku),
+ * a pretraživači ne indeksiraju koncept. Na Cloudflareu važi pravi domen.
+ */
+const vercelHost = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+export const isConcept = Boolean(vercelHost);
+
 export const site = {
   name: "Plaza Home",
   legalName: "Plaza Home DOO",
-  url: "https://plazahome.me",
+  url: vercelHost ? `https://${vercelHost}` : "https://plazahome.me",
   /** Iskustvo kako ga klijent navodi (brief: „posluje već 30 godina”). */
   experience: "30 godina iskustva",
   country: "Crna Gora",
@@ -27,8 +35,8 @@ export const site = {
    */
   address: null as null | { street: string; city: string; mapsUrl: string },
 
-  /** Boja trake browsera na telefonu; ista kao --color-primary u globals.css. */
-  themeColor: "#26546c",
+  /** Boja trake browsera na telefonu; ista kao --color-ink u globals.css. */
+  themeColor: "#0d1113",
   description:
     "Zavjese, draperije, rolo i rimske zavjese, drveni venecijaneri i tapete po mjeri. Mjerenje, šivenje i montaža za stanove, vile, hotele i restorane u Crnoj Gori.",
 

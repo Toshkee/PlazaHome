@@ -37,12 +37,13 @@ const paths = {
   chevronRight: ["M9 6l6 6l-6 6"],
   menu: ["M4 6l16 0", "M4 12l16 0", "M4 18l16 0"],
   arrowUpRight: ["M17 7l-10 10", "M8 7l9 0l0 9"],
+  arrowRight: ["M5 12l14 0", "M13 18l6 -6", "M13 6l6 6"],
 } as const;
 
 export type IconName = keyof typeof paths;
 
-/** Jedna veličina za sve ikone (20px); dodirnu površinu daje dugme oko nje. */
-export function Icon({ name }: { name: IconName }) {
+/** Podrazumijevano 20px; dodirnu površinu daje dugme oko ikone. */
+export function Icon({ name, className = "size-5" }: { name: IconName; className?: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +53,7 @@ export function Icon({ name }: { name: IconName }) {
       strokeWidth={2}
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="size-5 shrink-0"
+      className={`${className} shrink-0`}
       aria-hidden="true"
       focusable="false"
     >

@@ -2,6 +2,8 @@
 import type { MediaName } from "./media.generated";
 
 export type Product = {
+  /** Sidro na stranici /proizvodi. */
+  slug: string;
   name: string;
   text: string;
   image?: { name: MediaName; alt: string };
@@ -12,6 +14,7 @@ export const productsIntro =
 
 export const products: Product[] = [
   {
+    slug: "zavjese-i-draperije",
     name: "Zavjese i draperije",
     text: "Lagane zavjese i teže draperije, šivene po mjeri, i za prozore visine preko 3 m.",
     image: {
@@ -20,6 +23,7 @@ export const products: Product[] = [
     },
   },
   {
+    slug: "draperije",
     name: "Draperije za spavaće sobe",
     text: "Teže tkanine za spavaće sobe, salone i hotelske sobe.",
     image: {
@@ -28,6 +32,7 @@ export const products: Product[] = [
     },
   },
   {
+    slug: "rimske-zavjese",
     name: "Rimske zavjese",
     text: "Podižu se u nabore i ostaju u okviru prozora.",
     image: {
@@ -36,6 +41,7 @@ export const products: Product[] = [
     },
   },
   {
+    slug: "rolo-zavjese",
     name: "Rolo zavjese",
     text: "Platno na mehanizmu za zaštitu od sunca; kad je podignuto, gotovo se ne vidi.",
     image: {
@@ -44,6 +50,7 @@ export const products: Product[] = [
     },
   },
   {
+    slug: "drveni-venecijaneri",
     name: "Drveni venecijaneri",
     text: "Drvene lamele koje se okreću i podižu, za kontrolu svjetla i pogleda.",
     image: {
@@ -52,6 +59,7 @@ export const products: Product[] = [
     },
   },
   {
+    slug: "tapete",
     name: "Tapete",
     text: "Veliki izbor tapeta za domove, hotele, poslovne prostore i kancelarije.",
     image: {
@@ -60,6 +68,7 @@ export const products: Product[] = [
     },
   },
   {
+    slug: "garnisne-i-sine",
     name: "Garnišne i šine",
     text: "Biramo i montiramo garnišne i šine uz zavjese.",
   },

@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { contactLinks } from "@/content/site";
 import { Icon, type IconName } from "./icon";
 
@@ -7,21 +10,32 @@ const actions: { icon: IconName; label: string; href: string }[] = [
   { icon: "viber", label: "Viber", href: contactLinks.viber },
 ];
 
-/** Donja traka na telefonu: kontakt je uvijek na jedan dodir. */
+/**
+ * Donja traka na telefonu: kontakt na jedan dodir. Izlazi tek kad posjetilac
+ * skroluje ispod vrha stranice, da ne pokriva uvodni kadar.
+ */
 export function ContactBar() {
+  const [shown, setShown] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setShown(window.scrollY > window.innerHeight * 0.6);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <nav
       aria-label="Brzi kontakt"
-      className="safe-bottom fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background lg:hidden"
+      className={`safe-bottom fixed inset-x-0 bottom-0 z-40 border-t border-bone/10 bg-ink/90 backdrop-blur-md transition-transform duration-700 ease-film lg:hidden ${shown ? "translate-y-0" : "translate-y-full focus-within:translate-y-0"}`}
     >
-      <ul className="grid h-bar grid-cols-3">
+      <ul className="grid h-bar grid-cols-3 divide-x divide-bone/10">
         {actions.map((action) => (
           <li key={action.label}>
-            <a
-              href={action.href}
-              className="flex h-full flex-col items-center justify-center gap-1 text-sm font-medium text-primary"
-            >
-              <Icon name={action.icon} />
+            <a href={action.href} className="flex h-full items-center justify-center gap-2 text-sm font-medium">
+              <span className="text-gold">
+                <Icon name={action.icon} className="size-4" />
+              </span>
               {action.label}
             </a>
           </li>

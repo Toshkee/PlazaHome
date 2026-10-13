@@ -13,7 +13,7 @@ import { contactLinks } from "@/content/site";
 type Status = "idle" | "sending" | "sent" | "error";
 
 const inputClass =
-  "mt-2 block min-h-12 w-full rounded-base border border-border bg-background px-4 py-3 text-base aria-invalid:border-foreground";
+  "mt-1 block min-h-12 w-full border-0 border-b border-bone/25 bg-transparent px-0 py-3 text-lg transition-colors duration-500 outline-offset-4 hover:border-bone/50 focus:border-gold aria-invalid:border-gold";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -50,9 +50,9 @@ export function ContactForm() {
   const describedBy = (name: keyof FieldErrors) => (errors[name] ? `${name}-greska` : undefined);
 
   return (
-    <form action="/api/contact" method="post" noValidate onSubmit={onSubmit} className="space-y-6">
+    <form action="/api/contact" method="post" noValidate onSubmit={onSubmit} className="space-y-8">
       <div>
-        <label htmlFor="ime" className="font-medium">
+        <label htmlFor="ime" className="label text-stone">
           Ime i prezime
         </label>
         <input
@@ -70,7 +70,7 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="kontakt" className="font-medium">
+        <label htmlFor="kontakt" className="label text-stone">
           Telefon ili email
         </label>
         <input
@@ -88,8 +88,8 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="prostor" className="font-medium">
-          Vrsta prostora <span className="font-normal text-muted">(nije obavezno)</span>
+        <label htmlFor="prostor" className="label text-stone">
+          Vrsta prostora <span className="normal-case tracking-normal">(nije obavezno)</span>
         </label>
         <select
           id="prostor"
@@ -99,9 +99,9 @@ export function ContactForm() {
           aria-describedby={describedBy("prostor")}
           className={inputClass}
         >
-          <option value="">Izaberite</option>
+          <option value="" className="bg-ink">Izaberite</option>
           {spaceTypes.map((type) => (
-            <option key={type} value={type}>
+            <option key={type} value={type} className="bg-ink">
               {type}
             </option>
           ))}
@@ -110,7 +110,7 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="poruka" className="font-medium">
+        <label htmlFor="poruka" className="label text-stone">
           Poruka
         </label>
         <textarea
@@ -136,7 +136,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={status === "sending"}
-          className="inline-flex min-h-12 items-center rounded-base bg-primary px-6 font-medium text-primary-foreground hover:bg-foreground disabled:bg-muted"
+          className="btn btn-solid disabled:opacity-60"
         >
           {status === "sending" ? "Šaljem…" : "Pošalji upit"}
         </button>
@@ -165,7 +165,7 @@ export function ContactForm() {
 function FieldError({ id, message }: { id: string; message?: string }) {
   if (!message) return null;
   return (
-    <p id={id} className="mt-2 text-sm font-medium">
+    <p id={id} className="mt-2 text-sm font-medium text-gold">
       {message}
     </p>
   );

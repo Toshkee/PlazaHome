@@ -4,29 +4,37 @@ Stanje na dan 2026-10-13. Kod: https://github.com/Toshkee/PlazaHome (grana `main
 
 ## Šta je urađeno
 
-Jedna stranica na adresi `/`, sa sekcijama redom kojim idu. Uz svaku je pitanje posjetioca na koje odgovara.
+Šest stranica. Uz svaku je pitanje posjetioca na koje odgovara.
 
-| Sekcija | Pitanje posjetioca |
-|---|---|
-| Hero: dron snimak vile, naslov, WhatsApp i poziv | Šta je ovo i šta da uradim? |
-| O nama: tekst, činjenice, „Kako radimo” u 4 koraka | Ko ste i kako radite? |
-| Proizvodi: 6 sa fotografijom + garnišne i šine | Šta nudite? |
-| Radovi: 6 fotografija, pregled preko cijelog ekrana, linkovi na Instagram | Kako izgleda vaš rad? |
-| Utisak klijenta: Dolina Pive, sa linkom na izvor | Zašto da vam vjerujem? |
-| Kontakt: telefon, WhatsApp, Viber, email, Instagram, forma | Kako da zakažem? |
+| Stranica | Šta je na njoj | Pitanje posjetioca |
+|---|---|---|
+| `/` Početna | dron snimak vile preko cijelog ekrana, naslov, WhatsApp i poziv; rečenica o radu i tri brojke; red odabranih radova; proizvodi; klijenti i utisak; poziv na kontakt | Šta je ovo i šta da uradim? |
+| `/o-nama` | priča, činjenice, brojke preko fotografije, „Kako radimo” u 4 koraka | Ko ste i kako radite? |
+| `/radovi` | vila (dron snimak i dvije fotografije), još 4 projekta, pregled preko cijelog ekrana, linkovi na Instagram | Kako izgleda vaš rad? |
+| `/klijenti` | mjesta gdje su radili, 5 vrsta klijenata sa fotografijom, utisak Doline Pive | Za koga radite, zašto da vam vjerujem? |
+| `/proizvodi` | 6 proizvoda sa fotografijom + garnišne i šine | Šta nudite? |
+| `/kontakt` | telefon, WhatsApp, Viber, email, Instagram, forma | Kako da zakažem? |
 
-Na telefonu je pri dnu stalno vidljiva traka sa dugmadima Pozovi, WhatsApp i Viber.
+Na telefonu, čim se skroluje ispod vrha, pri dnu je stalno vidljiva traka sa dugmadima Pozovi, WhatsApp i Viber.
 
 ## Odluke i zašto
 
-- **Smjer dizajna.** Vodi „Serious and corporate”: jedan sans font (Instrument Sans), klasična hijerarhija, mreža od 12 kolona. Od „Elegant and premium” sam odustao od serifnog fonta za naslove, jer glavni smjer traži sans. Elegancija dolazi iz toplih neutralnih tonova, tanke zlatne linije iz logotipa, malih razmaknutih oznaka iznad naslova i širokih razmaka. Od „Light and clean” uzeta je svijetla pozadina i hero sa fotografijom i naslovom jedno pored drugog na desktopu.
-- **Paleta iz logotipa.** Primarna boja je petrolej plava `#26546C` (pozadina logotipa), akcent je zlatna `#B5A27A` (samo za tanke linije, nikad za površine). Svi tokeni su u `src/app/globals.css`.
+- **Smjer dizajna (2026-10-13, druga verzija).** Filmski, tamni sajt umjesto prve, „korporativne” verzije:
+  - Tamna osnova (skoro crna sa daškom petroleja), kost bijeli tekst, zlatna iz logotipa za akcente; svijetle sekcije za predah.
+  - Veliki serif naslovi (Instrument Serif, isti autor kao Instrument Sans za tekst), kurziv za jednu riječ u naslovu.
+  - Motiv zavjese u pokretu: uvod se otvara kao zavjesa, nova stranica se otvara od sredine, fotografije se razmiču pri pojavi.
+  - Bez biblioteka za animacije: CSS i nekoliko malih komponenti (vidi README, „Animacije”).
+- **Paleta.** Petrolej plava `#26546C` (pozadina logotipa) ostaje boja brenda i akcent na svijetlom; zlatna samo na tamnom. Svi tokeni su u `src/app/globals.css`.
 - **Hero video** (izbor klijenta: Instagram objava DV3HxtDiJyH):
+  - Preko cijelog ekrana i na telefonu i na desktopu. Snimak je uspravan (720×1280), pa je na širokom ekranu isječen i uvećan; filmsko zrno to ublažava. Oštriji kadar na desktopu traži original snimka u većoj rezoluciji (pitanje za @djurisicmedia).
   - Kao LCP prvo se prikaže poster (prvi kadar). Video (3,8 MB, bez zvuka) se učitava tek poslije `load` događaja.
   - Pauzira se kad nije na ekranu. Ima dugme za pauzu (WCAG 2.2.2).
   - Sa `prefers-reduced-motion` ne kreće sam; posjetilac ga pušta dugmetom.
+  - Tekst preko videa stoji na podlozi od najmanje 82 % (i iznad prvog reda naslova), pa ima kontrast i kad je kadar iza njega bijel.
+- **Trake teksta (klijenti, mjesta)** kreću se samo dok posjetilac skroluje, ne same od sebe, pa ne treba dugme za pauzu.
+- **Klijenti.** Na sajtu su samo vrste klijenata i mjesta iz briefa i sa Instagrama, i jedan imenovani klijent sa javnim utiskom (Dolina Pive). Imena hotela i restorana i logotipi idu tek uz dozvolu klijenata.
 - **Online zakazivanje** nije dio paketa. Umjesto njega su kontakt dugmad i forma.
-- **Logo** je profilna slika sa Instagrama, isječena na sam znak i inače nepromijenjena. Novi logo nije dio paketa.
+- **Logo** je profilna slika sa Instagrama, isječena na sam znak. Za providno zaglavlje i podnožje `scripts/media.mjs` pravi verziju bez petrolej podloge (isti zlatni znak). Novi logo nije dio paketa.
 - **Instagram na sajtu.** Nema „žive” Instagram trake: tražila bi skriptu treće strane i token, kvarila bi CSP i brzinu. Galerija je izbor fotografija sa njihovog Instagrama. Svaka vodi na svoju objavu, a uz sekciju je link na profil.
 - **Utisak klijenta** je stvaran: objava @dolinapive (DbGSOR8O98w). Skraćen je jer original pominje i drugog partnera; link vodi na original.
 - **Tekst.** Sav tekst je na crnogorskom. Uređen je iz briefa i iz opisa objava klijenta: usluge iz objave za Luštica Bay, „do 6 m” iz objave sa dron snimkom, tapete iz objave o tapetama. Kratke opise proizvoda sam napisao prema fotografijama i nazivima highlight-a; klijent ih je odobrio. Jedna rečenica je na engleskom, za strane klijente, jer klijent i sam objavljuje na engleskom.
@@ -37,12 +45,17 @@ Na telefonu je pri dnu stalno vidljiva traka sa dugmadima Pozovi, WhatsApp i Vib
   - Email šalje preko Resend-a. Bez podešenog ključa posjetiocu nudi WhatsApp i email.
 - **CSP bez `unsafe-inline` za skripte.** Next ubacuje inline skripte, pa `scripts/csp.mjs` poslije svakog builda računa njihove SHA-256 hasheve i upisuje ih u `out/_headers`.
 - **Slike.** Iz izvornih fajlova se prave AVIF i WebP u širinama 480–1600 (`scripts/media.mjs`). Prikazuju se kroz `<picture>` sa `sizes`, `width` i `height`. Hero poster ima `fetchpriority="high"`, sve ispod pregiba je `lazy`.
-- **Font.** Instrument Sans je sveden na znakove koje sajt koristi i težine 400–500: jedan WOFF2 od 18 KB umjesto dva od ukupno 43 KB.
+- **Fontovi.** Svedeni na znakove koje sajt koristi: Instrument Sans 400–500 (18 KB), Instrument Serif regular i kurziv (15 i 16 KB).
 - **Nema** analitike, kolačića, CMS-a, baze ni chat widgeta.
 
 ## Definition of Done
 
-Mjereno na produkcijskom buildu (`npm run build`), lokalno kroz `wrangler pages dev`, 2026-10-13.
+> Tabela ispod je mjerena na **prvoj** verziji sajta. Za drugu (filmsku) verziju provjereno je:
+> build, lint i typecheck čisti; 0 grešaka u konzoli na svih šest stranica (390 i 1440 px, produkcijski build kroz wrangler);
+> meni (fokus, Escape), prelaz između stranica, `prefers-reduced-motion` (bez uvoda i animacija, sav sadržaj vidljiv);
+> JavaScript na početnoj 155 KB brotli / 178 KB gzip. Lighthouse, kontrast po elementu i dodirne površine treba ponovo izmjeriti.
+
+Prva verzija, mjereno na produkcijskom buildu (`npm run build`), lokalno kroz `wrangler pages dev`, 2026-10-13.
 
 | Stavka | Stanje |
 |---|---|
@@ -71,6 +84,7 @@ Lighthouse treba ponoviti na produkcijskoj adresi poslije objave (pravi HTTPS i 
 | Slanje forme | Cloudflare → Variables: `RESEND_API_KEY`, `CONTACT_FROM` | Vidi README; do tada forma nudi WhatsApp i email |
 | Domen | `src/content/site.ts` → `url: "https://plazahome.me"` | Domen još **nije registrovan**; ako bude drugi, promijeniti ovdje |
 | Logo | `assets/source/instagram/logo-instagram.jpg` (473 px, sa Instagrama) | Zamijeniti originalnim fajlom (SVG ili PNG) i ažurirati `crop` u `scripts/media.mjs` |
+| Imena klijenata i logotipi | `src/content/clients.ts` | Upisati tek uz dozvolu klijenata; sada su tu vrste klijenata i mjesta |
 
 ## Otvorena pitanja za Vaky
 
@@ -84,13 +98,15 @@ Lighthouse treba ponoviti na produkcijskoj adresi poslije objave (pravi HTTPS i 
 5. **Engleski:** odgovaraju li na WhatsApp i na engleskom (sajt to nagovještava jednom rečenicom)?
 6. **„Terase”:** highlight na Instagramu pominje terase (tende, spoljašnje zavjese?). Ako to rade, treba naziv i fotografija za sekciju Proizvodi.
 7. **Originalni logo:** postoji li vektorski fajl?
+8. **Klijenti po imenu:** smijemo li navesti hotele, restorane ili firme za koje su radili (i dobiti njihove logotipe)?
+9. **Hero snimak:** ima li @djurisicmedia original u većoj rezoluciji (ili vodoravnu verziju) za desktop?
 
 ## Kako se mijenja sadržaj
 
 Ukratko (detalji u `README.md`):
 
-- **Tekst i kontakti:** fajlovi u `src/content/` (`site.ts`, `hero.ts`, `about.ts`, `products.ts`, `gallery.ts`, `testimonials.ts`). Poslije izmjene: `npm run build` i objava.
-- **Fotografija:** original u `assets/source/`, red u `scripts/media.mjs`, ime u `gallery.ts` ili `products.ts`.
+- **Tekst i kontakti:** fajlovi u `src/content/` (`site.ts`, `home.ts`, `about.ts`, `projects.ts`, `clients.ts`, `products.ts`, `testimonials.ts`). Poslije izmjene: `npm run build` i objava.
+- **Fotografija:** original u `assets/source/`, red u `scripts/media.mjs`, ime u `projects.ts`, `products.ts` ili `clients.ts`.
 - **Hero video:** zamijeniti `assets/source/instagram/hero-video.mp4`, pa `npm run video` i `npm run build`.
 - **Boje i tipografija:** `@theme` u `src/app/globals.css`.
 
