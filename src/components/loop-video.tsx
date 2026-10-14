@@ -114,7 +114,7 @@ export function LoopVideo({
       <button
         type="button"
         onClick={toggle}
-        className={`inline-flex size-11 items-center justify-center rounded-full border border-bone/30 text-bone backdrop-blur-sm transition-colors hover:bg-bone hover:text-ink ${buttonClassName}`}
+        className={`inline-flex size-11 items-center justify-center rounded-full border border-white/40 bg-night/40 text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-ink ${buttonClassName}`}
       >
         <Icon name={playing ? "pause" : "play"} className="size-4" />
         <span className="sr-only">{playing ? "Pauziraj video" : "Pusti video"}</span>

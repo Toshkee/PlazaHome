@@ -19,6 +19,9 @@ const channels: { icon: IconName; label: string; value: string; href: string }[]
   { icon: "viber", label: "Viber", value: site.phone.display, href: contactLinks.viber },
   { icon: "mail", label: "Email", value: site.email, href: contactLinks.email },
   { icon: "instagram", label: "Instagram", value: site.instagram.handle, href: contactLinks.instagram },
+  ...(site.address
+    ? [{ icon: "mapPin" as const, label: "Adresa", value: `${site.address.street}, ${site.address.city}`, href: site.address.mapsUrl }]
+    : []),
 ];
 
 export default function ContactPage() {
@@ -26,55 +29,45 @@ export default function ContactPage() {
     <PageShell>
       <PageHero
         label="Kontakt"
-        title={["Dogovorimo", "dolazak", "i mjerenje"]}
-        accent={[2]}
+        title="Dogovorimo dolazak i mjerenje"
         lead="Pozovite, pišite na WhatsApp ili Viber, ili pošaljite upit preko forme."
       />
 
-      <section aria-label="Načini kontakta" className="container-page pb-section">
-        <div className="grid gap-16 lg:grid-cols-12 lg:gap-x-12">
-          <div className="lg:col-span-6">
-            <ul className="border-t border-bone/10">
+      <section aria-label="Načini kontakta" className="container-page py-section">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-x-12">
+          <div className="lg:col-span-5">
+            <h2 className="text-xl">Javite nam se direktno</h2>
+            <ul className="mt-5 grid gap-3">
               {channels.map((channel, i) => (
-                <li key={channel.label} className="border-b border-bone/10" data-reveal="up" style={vars({ "--delay": `${i * 0.07}s` })}>
-                  <a href={channel.href} className="group flex min-h-20 items-center gap-5 py-4">
-                    <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-full border border-bone/20 text-gold transition-colors duration-500 group-hover:border-gold group-hover:bg-gold group-hover:text-ink">
-                      <Icon name={channel.icon} className="size-4" />
+                <li key={channel.label} data-reveal style={vars({ "--delay": `${i * 0.05}s` })}>
+                  <a
+                    href={channel.href}
+                    className="group flex min-h-18 items-center gap-4 border border-line bg-white px-4 py-3 transition-colors hover:border-petrol sm:px-5"
+                  >
+                    <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-sand text-petrol">
+                      <Icon name={channel.icon} className="size-5" />
                     </span>
                     <span className="flex min-w-0 flex-1 flex-col">
-                      <span className="label text-stone">{channel.label}</span>
-                      <span className="display mt-1 truncate text-[clamp(1.375rem,1.1rem+1.2vw,2rem)] leading-tight transition-transform duration-700 ease-film group-hover:translate-x-1.5">
-                        {channel.value}
-                      </span>
+                      <span className="text-sm text-muted">{channel.label}</span>
+                      <span className="truncate font-semibold">{channel.value}</span>
                     </span>
-                    <Icon name="arrowUpRight" className="size-5 text-stone transition-transform duration-500 group-hover:rotate-45" />
+                    <Icon name="arrowUpRight" className="size-5 text-muted transition-colors group-hover:text-petrol" />
                   </a>
                 </li>
               ))}
-              {site.address && (
-                <li className="border-b border-bone/10">
-                  <a href={site.address.mapsUrl} className="group flex min-h-20 items-center gap-5 py-4">
-                    <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-full border border-bone/20 text-gold">
-                      <Icon name="mapPin" className="size-4" />
-                    </span>
-                    <span className="display flex-1 text-[clamp(1.375rem,1.1rem+1.2vw,2rem)] leading-tight">
-                      {site.address.street}, {site.address.city}
-                    </span>
-                    <Icon name="arrowUpRight" className="size-5 text-stone" />
-                  </a>
-                </li>
-              )}
             </ul>
-            <p lang="en" className="mt-8 text-stone">
+            <p lang="en" className="mt-6 text-muted">
               English-speaking clients are welcome: message us on WhatsApp.
             </p>
           </div>
 
-          <div className="lg:col-span-5 lg:col-start-8" data-reveal="up" style={vars({ "--delay": "0.2s" })}>
-            <h2 className="display text-xl">Pošaljite upit</h2>
-            <p className="mt-3 text-stone">Napišite šta vam treba i gdje je prostor; javljamo se telefonom ili emailom.</p>
-            <div className="mt-10">
-              <ContactForm />
+          <div className="lg:col-span-7" data-reveal>
+            <div className="border-t border-line pt-10 sm:border sm:bg-white sm:p-8 lg:p-10">
+              <h2 className="text-xl">Pošaljite upit</h2>
+              <p className="mt-2 text-muted">Napišite šta vam treba i gdje je prostor; javljamo se telefonom ili emailom.</p>
+              <div className="mt-8">
+                <ContactForm />
+              </div>
             </div>
           </div>
         </div>

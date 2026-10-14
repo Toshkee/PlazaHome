@@ -2,14 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, type CSSProperties, type ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 import { navigation } from "@/content/navigation";
 import { contactLinks, site } from "@/content/site";
 import { Icon } from "./icon";
 
 /**
  * Meni na telefonu: <dialog> preko cijelog ekrana (fokus ostaje unutra,
- * Escape zatvara i vraća fokus na dugme). Spušta se kao zavjesa.
+ * Escape zatvara i vraća fokus na dugme).
  */
 export function MobileMenu({ logo }: { logo: ReactNode }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -27,70 +27,80 @@ export function MobileMenu({ logo }: { logo: ReactNode }) {
         type="button"
         aria-haspopup="dialog"
         onClick={() => dialogRef.current?.showModal()}
-        className="-mr-2 inline-flex min-h-11 items-center gap-3 px-2 text-sm font-medium"
+        className="-mr-2.5 inline-flex min-h-11 items-center gap-2.5 px-2.5 text-[0.9375rem] font-semibold"
       >
         Meni
-        <span aria-hidden="true" className="flex w-6 flex-col gap-1.5">
-          <span className="h-px w-full bg-current" />
-          <span className="h-px w-2/3 self-end bg-current" />
-        </span>
+        <Icon name="menu" className="size-5" />
       </button>
 
       <dialog
         ref={dialogRef}
         aria-label="Meni"
-        className="menu-dialog m-0 h-dvh max-h-none w-full max-w-none bg-ink p-0 text-bone"
+        className="menu-dialog m-0 h-dvh max-h-none w-full max-w-none bg-paper p-0 text-ink"
       >
         <div className="flex h-full flex-col">
-          <div className="container-page flex h-header shrink-0 items-center justify-between">
-            <Link href="/" onClick={close} className="block py-1">
+          <div className="container-page flex h-header shrink-0 items-center justify-between border-b border-line">
+            <Link href="/" onClick={close} className="-mx-1 block px-1 py-1">
               {logo}
             </Link>
             <button
               type="button"
               onClick={close}
               autoFocus
-              className="-mr-2 inline-flex min-h-11 items-center gap-3 px-2 text-sm font-medium"
+              className="-mr-2.5 inline-flex min-h-11 items-center gap-2.5 px-2.5 text-[0.9375rem] font-semibold"
             >
               Zatvori
               <Icon name="close" className="size-5" />
             </button>
           </div>
 
-          <nav aria-label="Glavna navigacija" className="container-page flex flex-1 flex-col justify-center">
-            <ul className="border-t border-bone/10">
-              {navigation.map((item, i) => (
-                <li key={item.href} className="border-b border-bone/10">
+          <nav aria-label="Glavna navigacija" className="container-page flex-1 overflow-y-auto pt-4">
+            <ul>
+              <li className="border-b border-line">
+                <Link
+                  href="/"
+                  onClick={close}
+                  aria-current={pathname === "/" ? "page" : undefined}
+                  className="flex min-h-15 items-center justify-between gap-4 text-2xl font-medium aria-[current=page]:text-petrol"
+                >
+                  Početna
+                  <Icon name="chevronRight" className="size-5 text-muted" />
+                </Link>
+              </li>
+              {navigation.map((item) => (
+                <li key={item.href} className="border-b border-line">
                   <Link
                     href={item.href}
                     onClick={close}
                     aria-current={pathname === item.href ? "page" : undefined}
-                    className="flex items-baseline justify-between gap-4 py-3 aria-[current=page]:text-gold"
+                    className="flex min-h-15 items-center justify-between gap-4 text-2xl font-medium aria-[current=page]:text-petrol"
                   >
-                    <span className="display line text-[clamp(2.5rem,11vw,3.5rem)] leading-none">
-                      <span style={{ "--i": i } as CSSProperties}>{item.label}</span>
-                    </span>
-                    <span className="label menu-fade text-stone" aria-hidden="true">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
+                    {item.label}
+                    <Icon name="chevronRight" className="size-5 text-muted" />
                   </Link>
                 </li>
               ))}
             </ul>
           </nav>
 
-          <div className="container-page menu-fade safe-bottom shrink-0 pb-6">
-            <div className="flex flex-wrap gap-x-6 gap-y-1 border-t border-bone/10 pt-4 text-sm">
-              <a href={contactLinks.tel} className="inline-flex min-h-11 items-center gap-2">
-                <Icon name="phone" className="size-4 text-gold" />
-                {site.phone.display}
+          <div className="container-page safe-bottom shrink-0 pt-4 pb-5">
+            <div className="grid grid-cols-2 gap-3">
+              <a href={contactLinks.tel} className="btn btn-outline">
+                <Icon name="phone" className="size-4" />
+                Pozovite
               </a>
-              <a href={contactLinks.whatsapp} className="inline-flex min-h-11 items-center gap-2">
-                <Icon name="whatsapp" className="size-4 text-gold" />
+              <a href={contactLinks.whatsapp} className="btn btn-primary">
+                <Icon name="whatsapp" className="size-4" />
                 WhatsApp
               </a>
+            </div>
+            <div className="mt-3 flex flex-wrap justify-center gap-x-6 text-sm text-muted">
+              <a href={contactLinks.email} className="inline-flex min-h-11 items-center gap-2">
+                <Icon name="mail" className="size-4" />
+                Email
+              </a>
               <a href={contactLinks.instagram} className="inline-flex min-h-11 items-center gap-2">
-                <Icon name="instagram" className="size-4 text-gold" />
+                <Icon name="instagram" className="size-4" />
                 {site.instagram.handle}
               </a>
             </div>

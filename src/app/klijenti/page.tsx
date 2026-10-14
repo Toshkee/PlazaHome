@@ -1,9 +1,9 @@
 import { Cta } from "@/components/cta";
-import { Marquee } from "@/components/marquee";
+import { Icon } from "@/components/icon";
 import { PageHero } from "@/components/page-hero";
 import { PageShell } from "@/components/page-shell";
 import { Picture } from "@/components/picture";
-import { Quote } from "@/components/quote";
+import { TestimonialCard } from "@/components/testimonial-card";
 import { clients } from "@/content/clients";
 import { pageMetadata } from "@/lib/metadata";
 import { vars } from "@/lib/style";
@@ -18,54 +18,56 @@ export const metadata = pageMetadata({
 export default function ClientsPage() {
   return (
     <PageShell>
-      <PageHero label="Klijenti" title={clients.title} accent={clients.accent} lead={clients.lead} />
+      <PageHero label="Klijenti" title={clients.title} lead={clients.lead}>
+        <ul className="mt-6 flex flex-wrap gap-2" aria-label="Gdje smo radili">
+          {clients.places.map((place) => (
+            <li key={place} className="inline-flex items-center gap-2 border border-line bg-white px-3 py-2 text-sm font-medium">
+              <Icon name="mapPin" className="size-4 text-petrol" />
+              {place}
+            </li>
+          ))}
+        </ul>
+      </PageHero>
 
-      <section aria-labelledby="mjesta-title" className="border-y border-bone/10 py-6">
-        <h2 id="mjesta-title" className="sr-only">
-          Gdje smo radili
-        </h2>
-        <Marquee items={clients.places} className="display text-[clamp(3rem,2rem+6vw,8rem)] leading-[1.1]" />
-      </section>
-
-      {/* Vrste klijenata: svaka sa svojom fotografijom, naizmjenično lijevo i desno. */}
-      <section aria-labelledby="vrste-title" className="on-light py-section">
+      {/* Vrste klijenata: na desktopu dvije veće kartice, pa tri manje. */}
+      <section aria-labelledby="vrste-title" className="py-section">
         <div className="container-page">
-          <h2 id="vrste-title" className="label text-petrol" data-reveal="fade">
+          <h2 id="vrste-title" className="text-2xl" data-reveal>
             Za koga radimo
           </h2>
-          <ol className="mt-12">
-            {clients.segments.map((segment, i) => {
-              const flip = i % 2 === 1;
-              return (
-                <li key={segment.name} className="grid items-center gap-8 border-t border-ink/15 py-12 lg:grid-cols-12 lg:gap-x-12 lg:py-16">
-                  <div
-                    className={`relative aspect-4/3 overflow-clip bg-ink/10 lg:col-span-6 ${flip ? "lg:col-start-7" : ""}`}
-                    data-reveal="curtain"
-                  >
-                    <Picture name={segment.image.name} alt={segment.image.alt} sizes="(min-width: 64rem) 45vw, 100vw" className="parallax" />
-                  </div>
-                  <div
-                    className={`lg:col-span-5 ${flip ? "lg:col-start-1 lg:row-start-1" : "lg:col-start-8"}`}
-                    data-reveal="up"
-                    style={vars({ "--delay": "0.15s" })}
-                  >
-                    <span className="label text-muted">{String(i + 1).padStart(2, "0")}</span>
-                    <h3 className="display mt-4 text-2xl">{segment.name}</h3>
-                    <p className="mt-4 max-w-sm text-lg text-muted">{segment.text}</p>
-                  </div>
-                </li>
-              );
-            })}
-          </ol>
+          <ul className="mt-8 grid gap-x-5 gap-y-10 sm:grid-cols-2 lg:mt-12 lg:grid-cols-6 lg:gap-x-8 lg:gap-y-14">
+            {clients.segments.map((segment, i) => (
+              <li
+                key={segment.name}
+                className={i < 2 ? "lg:col-span-3" : "lg:col-span-2"}
+                data-reveal
+                style={vars({ "--delay": `${(i < 2 ? i : i - 2) * 0.06}s` })}
+              >
+                <div className={`overflow-clip bg-sand ${i < 2 ? "aspect-4/3" : "aspect-4/3 lg:aspect-4/5"}`}>
+                  <Picture
+                    name={segment.image.name}
+                    alt={segment.image.alt}
+                    sizes={i < 2 ? "(min-width: 80rem) 38rem, (min-width: 40rem) 47vw, 100vw" : "(min-width: 80rem) 25rem, (min-width: 64rem) 31vw, (min-width: 40rem) 47vw, 100vw"}
+                    className="size-full object-cover"
+                  />
+                </div>
+                <h3 className="mt-5 text-xl">{segment.name}</h3>
+                <p className="mt-1.5 max-w-md text-muted">{segment.text}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      <section aria-labelledby="utisak-title" className="py-section">
-        <div className="container-page">
-          <h2 id="utisak-title" className="label text-gold" data-reveal="fade">
-            Utisak klijenta
-          </h2>
-          <Quote className="mt-10 max-w-5xl" />
+      <section aria-labelledby="utisak-title" className="bg-sand py-section">
+        <div className="container-page grid gap-8 lg:grid-cols-12 lg:items-start lg:gap-x-12">
+          <div className="lg:col-span-4" data-reveal>
+            <p className="eyebrow text-petrol">Utisak klijenta</p>
+            <h2 id="utisak-title" className="mt-3 text-2xl">
+              Šta kažu o nama
+            </h2>
+          </div>
+          <TestimonialCard className="bg-white lg:col-span-8" />
         </div>
       </section>
 

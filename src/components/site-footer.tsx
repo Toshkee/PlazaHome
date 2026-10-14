@@ -1,63 +1,79 @@
 import Link from "next/link";
 import { navigation } from "@/content/navigation";
+import { products } from "@/content/products";
 import { contactLinks, site } from "@/content/site";
 import { Picture } from "./picture";
+
+const linkClass = "inline-flex min-h-11 items-center transition-colors hover:text-white";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative overflow-clip border-t border-bone/10 bg-ink">
-      <div className="container-page grid gap-12 pt-16 pb-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-x-12">
-        <div className="lg:col-span-5">
-          <Picture name="logo-mark" alt={site.name} sizes="140px" className="h-14 w-auto" />
-          <p className="mt-6 max-w-xs text-stone">
-            Zavjese, draperije i zaštita od sunca po mjeri. {site.experience}.
-          </p>
+    <footer className="on-dark bg-night pb-bar text-white/70 lg:pb-0">
+      <div className="container-page grid grid-cols-2 gap-x-6 gap-y-10 pt-14 pb-8 lg:grid-cols-12 lg:gap-x-12 lg:pt-20">
+        <div className="col-span-2 lg:col-span-4">
+          <Picture name="logo-mark" alt={site.name} sizes="130px" className="h-12 w-auto" />
+          <p className="mt-5 max-w-xs">Zavjese, draperije i zaštita od sunca po mjeri. {site.experience}.</p>
         </div>
 
-        <nav aria-label="Podnožje" className="lg:col-span-3">
-          <p className="label text-stone">Stranice</p>
-          <ul className="mt-4">
+        <nav aria-labelledby="footer-stranice" className="col-span-2 sm:col-span-1 lg:col-span-2 lg:col-start-5">
+          <h2 id="footer-stranice" className="text-sm font-semibold text-white">
+            Stranice
+          </h2>
+          <ul className="mt-3 grid grid-cols-2 gap-x-6 sm:grid-cols-1">
             <li>
-              <Link href="/" className="inline-flex min-h-11 items-center">
-                <span className="hover-line">Početna</span>
+              <Link href="/" className={linkClass}>
+                Početna
               </Link>
             </li>
             {navigation.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="inline-flex min-h-11 items-center">
-                  <span className="hover-line">{item.label}</span>
+                <Link href={item.href} className={linkClass}>
+                  {item.label}
                 </Link>
               </li>
             ))}
           </ul>
         </nav>
 
-        <div className="lg:col-span-4">
-          <p className="label text-stone">Kontakt</p>
-          <ul className="mt-4">
+        <nav aria-labelledby="footer-proizvodi" className="hidden sm:block lg:col-span-3">
+          <h2 id="footer-proizvodi" className="text-sm font-semibold text-white">
+            Proizvodi
+          </h2>
+          <ul className="mt-3">
+            {products.map((product) => (
+              <li key={product.slug}>
+                <Link href={`/proizvodi#${product.slug}`} className={linkClass}>
+                  {product.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="col-span-2 lg:col-span-3">
+          <h2 className="text-sm font-semibold text-white">Kontakt</h2>
+          <ul className="mt-3">
             <li>
-              <a href={contactLinks.tel} className="inline-flex min-h-11 items-center">
-                <span className="hover-line">{site.phone.display}</span>
+              <a href={contactLinks.tel} className={linkClass}>
+                {site.phone.display}
               </a>
             </li>
             <li>
-              <a href={contactLinks.email} className="inline-flex min-h-11 items-center break-all">
-                <span className="hover-line">{site.email}</span>
+              <a href={contactLinks.email} className={`${linkClass} break-all`}>
+                {site.email}
               </a>
             </li>
             <li>
-              <a href={contactLinks.instagram} className="inline-flex min-h-11 items-center">
-                <span className="hover-line">Instagram {site.instagram.handle}</span>
+              <a href={contactLinks.instagram} className={linkClass}>
+                Instagram {site.instagram.handle}
               </a>
             </li>
             {site.address && (
               <li>
-                <a href={site.address.mapsUrl} className="inline-flex min-h-11 items-center">
-                  <span className="hover-line">
-                    {site.address.street}, {site.address.city}
-                  </span>
+                <a href={site.address.mapsUrl} className={linkClass}>
+                  {site.address.street}, {site.address.city}
                 </a>
               </li>
             )}
@@ -65,23 +81,14 @@ export function SiteFooter() {
         </div>
       </div>
 
-      {/* Veliki potpis preko cijele širine; ime je već u logotipu iznad, pa je ovo ukras. */}
-      <div aria-hidden="true" className="container-page" data-reveal="lines">
-        <p className="display line text-[21vw] leading-[0.8] whitespace-nowrap text-bone/90">
-          <span>
-            Plaza <span className="accent">Home</span>
-          </span>
-        </p>
-      </div>
-
       <div className="container-page">
-        <div className="flex flex-col gap-1 border-t border-bone/10 py-6 text-sm text-stone sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-1 border-t border-white/10 py-5 text-sm sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {site.legalName}, {site.country}
           </p>
           <p>
             Video:{" "}
-            <a href={site.videoCredit.url} className="inline-flex min-h-11 items-center underline underline-offset-4">
+            <a href={site.videoCredit.url} className="inline-flex min-h-11 items-center underline underline-offset-4 hover:text-white">
               {site.videoCredit.name}
             </a>
           </p>

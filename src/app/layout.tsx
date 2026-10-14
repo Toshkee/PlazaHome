@@ -2,28 +2,18 @@ import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import localFont from "next/font/local";
 import { ContactBar } from "@/components/contact-bar";
-import { IntroCurtain } from "@/components/intro-curtain";
 import { RevealObserver } from "@/components/reveal-observer";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { isConcept, site } from "@/content/site";
 import "./globals.css";
 
-// Instrument Sans i Instrument Serif (OFL), svedeni na znakove koje sajt koristi: scripts/font.sh.
+// Albert Sans (OFL), geometrijski kao slova u logotipu; sveden na znakove koje sajt koristi: scripts/font.sh.
 const sans = localFont({
-  src: "../fonts/instrument-sans-subset.woff2",
-  weight: "400 500",
+  src: "../fonts/albert-sans-subset.woff2",
+  weight: "400 600",
   display: "swap",
-  variable: "--font-instrument",
-});
-
-const serif = localFont({
-  src: [
-    { path: "../fonts/instrument-serif-subset.woff2", style: "normal", weight: "400" },
-    { path: "../fonts/instrument-serif-italic-subset.woff2", style: "italic", weight: "400" },
-  ],
-  display: "swap",
-  variable: "--font-instrument-serif",
+  variable: "--font-albert",
 });
 
 export const metadata: Metadata = {
@@ -46,20 +36,19 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   themeColor: site.themeColor,
   viewportFit: "cover",
-  colorScheme: "dark",
+  colorScheme: "light",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="sr-Latn-ME" data-scroll-behavior="smooth" className={`${sans.variable} ${serif.variable}`}>
-      <body className="pb-bar lg:pb-0">
+    <html lang="sr-Latn-ME" data-scroll-behavior="smooth" className={sans.variable}>
+      <body>
         <a
           href="#sadrzaj"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[80] focus:bg-bone focus:px-4 focus:py-3 focus:text-ink"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[80] focus:bg-petrol focus:px-4 focus:py-3 focus:text-white"
         >
           Preskoči na sadržaj
         </a>
-        <IntroCurtain />
         <SiteHeader />
         {children}
         <SiteFooter />

@@ -14,8 +14,8 @@ const IG = "assets/source/instagram";
 const DEFAULT_WIDTHS = [480, 800, 1200, 1600];
 
 const LOGO_CROP = { left: 37, top: 192, width: 406, height: 156 };
-/** Zlatna boja znaka; boja pozadine se čita iz ugla slike. */
-const LOGO_GOLD = [196, 178, 136];
+/** Boje znaka: zlatna za tamne površine, petrolej (boja podloge logotipa) za svijetle. */
+const LOGO_COLORS = { gold: [196, 178, 136], petrol: [38, 84, 108] };
 /**
  * Svaka slika: ime (koristi se u kodu), izvor, opciono isijecanje i širine.
  * Isijecanje je u pikselima izvornog fajla.
@@ -46,8 +46,9 @@ const IMAGES = [
     crop: LOGO_CROP,
     widths: [160, 240, 320, 406],
   },
-  // Isti znak bez petrolej podloge (pravi ga buildLogoMark), za providno zaglavlje i podnožje.
+  // Isti znak bez podloge (pravi ga buildLogoMark): zlatni za podnožje, petrolej za zaglavlje.
   { name: "logo-mark", src: "assets/source/generated/logo-mark.png", widths: [240, 400, 600, 812] },
+  { name: "logo-mark-petrol", src: "assets/source/generated/logo-mark-petrol.png", widths: [240, 400, 600, 812] },
 ];
 
 
@@ -92,9 +93,9 @@ async function buildImage(image, existing) {
 
 /**
  * Znak bez podloge: logo se dvostruko uveća (mekše ivice), pa se providnost
- * računa iz udaljenosti svakog piksela od boje podloge. Boja je jedna, zlatna.
+ * računa iz udaljenosti svakog piksela od boje podloge. Znak je jednobojan.
  */
-async function buildLogoMark() {
+async function buildLogoMark(color, file) {
   const { data, info } = await sharp(path.join(ROOT, `${IG}/logo-instagram.jpg`))
     .extract(LOGO_CROP)
     .resize({ width: LOGO_CROP.width * 2, kernel: "lanczos3" })
@@ -107,13 +108,12 @@ async function buildLogoMark() {
   for (let i = 0, o = 0; i < data.length; i += 3, o += 4) {
     const d = Math.hypot(data[i] - bg[0], data[i + 1] - bg[1], data[i + 2] - bg[2]);
     const alpha = Math.min(1, Math.max(0, (d - 24) / 140));
-    out[o] = LOGO_GOLD[0];
-    out[o + 1] = LOGO_GOLD[1];
-    out[o + 2] = LOGO_GOLD[2];
+    out[o] = color[0];
+    out[o + 1] = color[1];
+    out[o + 2] = color[2];
     out[o + 3] = Math.round(alpha * 255);
   }
 
-  const file = path.join(ROOT, "assets/source/generated/logo-mark.png");
   await mkdir(path.dirname(file), { recursive: true });
   await sharp(out, { raw: { width: info.width, height: info.height, channels: 4 } })
     .png({ compressionLevel: 9 })
@@ -160,7 +160,8 @@ async function main() {
   const keep = new Set();
   let made = 0;
 
-  await buildLogoMark();
+  await buildLogoMark(LOGO_COLORS.gold, path.join(ROOT, "assets/source/generated/logo-mark.png"));
+  await buildLogoMark(LOGO_COLORS.petrol, path.join(ROOT, "assets/source/generated/logo-mark-petrol.png"));
   for (const image of IMAGES) {
     const result = await buildImage(image, existing);
     entries[image.name] = result.entry;

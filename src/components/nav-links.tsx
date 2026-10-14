@@ -4,12 +4,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navigation } from "@/content/navigation";
 
-/** Glavni meni na desktopu; trenutna stranica ima zlatnu tačku. */
+/** Glavni meni na desktopu; trenutna stranica je podvučena petrolej linijom. */
 export function NavLinks() {
   const pathname = usePathname();
 
   return (
-    <ul className="flex items-center gap-7">
+    <ul className="flex items-center gap-8">
       {navigation.map((item) => {
         const current = pathname === item.href;
         return (
@@ -17,15 +17,13 @@ export function NavLinks() {
             <Link
               href={item.href}
               aria-current={current ? "page" : undefined}
-              className="relative inline-flex min-h-11 items-center gap-2 text-sm font-medium"
+              className="relative inline-flex min-h-11 items-center text-[0.9375rem] font-medium text-ink/75 transition-colors hover:text-ink aria-[current=page]:text-ink"
             >
+              {item.label}
               <span
                 aria-hidden="true"
-                className={`size-1 rounded-full bg-gold transition-transform duration-500 ${current ? "scale-100" : "scale-0"}`}
+                className={`absolute inset-x-0 bottom-1.5 h-0.5 bg-petrol transition-transform duration-300 ${current ? "scale-x-100" : "scale-x-0"}`}
               />
-              <span className="hover-line pb-0.5">
-                {item.label}
-              </span>
             </Link>
           </li>
         );

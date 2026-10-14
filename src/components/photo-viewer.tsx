@@ -49,18 +49,18 @@ export function PhotoViewer({
           if (event.key === "ArrowRight") show(1);
           if (event.key === "ArrowLeft") show(-1);
         }}
-        className="viewer-dialog m-0 size-full max-h-none max-w-none bg-ink p-0 text-bone"
+        className="viewer-dialog on-dark m-0 size-full max-h-none max-w-none bg-night p-0 text-white"
       >
         <div className="flex h-full flex-col">
           <div className="flex items-center justify-between gap-4 px-3 py-2">
-            <p className="label px-2 text-stone" aria-live="polite">
-              {String(index + 1).padStart(2, "0")} / {String(count).padStart(2, "0")}
+            <p className="px-2 text-sm text-white/70" aria-live="polite">
+              {index + 1} / {count}
             </p>
             <button
               type="button"
               onClick={close}
               autoFocus
-              className="inline-flex min-h-11 items-center gap-3 px-3 text-sm font-medium"
+              className="inline-flex min-h-11 items-center gap-2.5 px-3 text-sm font-semibold"
             >
               Zatvori
               <Icon name="close" />
@@ -68,13 +68,13 @@ export function PhotoViewer({
           </div>
 
           <div className="relative flex min-h-0 flex-1 items-center justify-center px-3">
-            <div key={index} className="flex size-full items-center justify-center enter-fade" style={{ animationDelay: "0s", animationDuration: "0.6s" }}>
+            <div key={index} className="flex size-full items-center justify-center">
               {slides[index]}
             </div>
             <button
               type="button"
               onClick={() => show(-1)}
-              className="absolute top-1/2 left-3 inline-flex size-12 -translate-y-1/2 items-center justify-center rounded-full border border-bone/30 bg-ink/60 backdrop-blur-sm hover:bg-bone hover:text-ink"
+              className="absolute top-1/2 left-3 inline-flex size-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-night/60 backdrop-blur-sm transition-colors hover:bg-white hover:text-ink"
             >
               <Icon name="chevronLeft" />
               <span className="sr-only">Prethodna fotografija</span>
@@ -82,7 +82,7 @@ export function PhotoViewer({
             <button
               type="button"
               onClick={() => show(1)}
-              className="absolute top-1/2 right-3 inline-flex size-12 -translate-y-1/2 items-center justify-center rounded-full border border-bone/30 bg-ink/60 backdrop-blur-sm hover:bg-bone hover:text-ink"
+              className="absolute top-1/2 right-3 inline-flex size-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-night/60 backdrop-blur-sm transition-colors hover:bg-white hover:text-ink"
             >
               <Icon name="chevronRight" />
               <span className="sr-only">Sljedeća fotografija</span>
@@ -90,7 +90,7 @@ export function PhotoViewer({
           </div>
 
           <div className="safe-bottom flex flex-wrap items-center justify-between gap-x-6 gap-y-2 px-5 py-4">
-            <p className="display text-lg">{item.caption}</p>
+            <p className="font-medium">{item.caption}</p>
             <a href={item.instagramUrl} className="inline-flex min-h-11 items-center gap-2 text-sm underline underline-offset-4">
               Objava na Instagramu
               <Icon name="arrowUpRight" className="size-4" />

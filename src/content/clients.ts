@@ -3,8 +3,7 @@
 import type { MediaName } from "./media.generated";
 
 export const clients = {
-  title: ["Domovi, vile,", "hoteli", "i restorani"],
-  accent: [1],
+  title: "Domovi, vile, hoteli i restorani",
   lead: "Radimo za porodice i za firme, širom Crne Gore.",
   segments: [
     {

@@ -4,33 +4,33 @@ import type { MediaImage } from "@/lib/media";
 export const media = {
   "hero-poster": {
     "width": 720,
-    "height": 1280,
+    "height": 1272,
     "avif": [
       {
         "width": 360,
-        "src": "/media/hero-poster-360-aa14d3ab.avif"
+        "src": "/media/hero-poster-360-3f7de2f0.avif"
       },
       {
         "width": 540,
-        "src": "/media/hero-poster-540-aa14d3ab.avif"
+        "src": "/media/hero-poster-540-3f7de2f0.avif"
       },
       {
         "width": 720,
-        "src": "/media/hero-poster-720-aa14d3ab.avif"
+        "src": "/media/hero-poster-720-3f7de2f0.avif"
       }
     ],
     "webp": [
       {
         "width": 360,
-        "src": "/media/hero-poster-360-aa14d3ab.webp"
+        "src": "/media/hero-poster-360-3f7de2f0.webp"
       },
       {
         "width": 540,
-        "src": "/media/hero-poster-540-aa14d3ab.webp"
+        "src": "/media/hero-poster-540-3f7de2f0.webp"
       },
       {
         "width": 720,
-        "src": "/media/hero-poster-720-aa14d3ab.webp"
+        "src": "/media/hero-poster-720-3f7de2f0.webp"
       }
     ]
   },
@@ -591,6 +591,46 @@ export const media = {
       {
         "width": 812,
         "src": "/media/logo-mark-812-a2795c05.webp"
+      }
+    ]
+  },
+  "logo-mark-petrol": {
+    "width": 812,
+    "height": 312,
+    "avif": [
+      {
+        "width": 240,
+        "src": "/media/logo-mark-petrol-240-b40dfdfd.avif"
+      },
+      {
+        "width": 400,
+        "src": "/media/logo-mark-petrol-400-b40dfdfd.avif"
+      },
+      {
+        "width": 600,
+        "src": "/media/logo-mark-petrol-600-b40dfdfd.avif"
+      },
+      {
+        "width": 812,
+        "src": "/media/logo-mark-petrol-812-b40dfdfd.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 240,
+        "src": "/media/logo-mark-petrol-240-b40dfdfd.webp"
+      },
+      {
+        "width": 400,
+        "src": "/media/logo-mark-petrol-400-b40dfdfd.webp"
+      },
+      {
+        "width": 600,
+        "src": "/media/logo-mark-petrol-600-b40dfdfd.webp"
+      },
+      {
+        "width": 812,
+        "src": "/media/logo-mark-petrol-812-b40dfdfd.webp"
       }
     ]
   }

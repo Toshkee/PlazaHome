@@ -9,11 +9,15 @@ import {
   validateContact,
 } from "@/content/contact-form";
 import { contactLinks } from "@/content/site";
+import { Icon } from "./icon";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
-const inputClass =
-  "mt-1 block min-h-12 w-full border-0 border-b border-bone/25 bg-transparent px-0 py-3 text-lg transition-colors duration-500 outline-offset-4 hover:border-bone/50 focus:border-gold aria-invalid:border-gold";
+const fieldClass =
+  "block min-h-12 w-full rounded-base border border-line bg-white px-4 py-3 text-base transition-colors outline-offset-0 hover:border-ink/30 focus:border-petrol aria-invalid:border-error";
+const inputClass = `mt-2 ${fieldClass}`;
+
+const labelClass = "text-sm font-semibold";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -50,9 +54,9 @@ export function ContactForm() {
   const describedBy = (name: keyof FieldErrors) => (errors[name] ? `${name}-greska` : undefined);
 
   return (
-    <form action="/api/contact" method="post" noValidate onSubmit={onSubmit} className="space-y-8">
+    <form action="/api/contact" method="post" noValidate onSubmit={onSubmit} className="grid gap-6 sm:grid-cols-2">
       <div>
-        <label htmlFor="ime" className="label text-stone">
+        <label htmlFor="ime" className={labelClass}>
           Ime i prezime
         </label>
         <input
@@ -70,7 +74,7 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="kontakt" className="label text-stone">
+        <label htmlFor="kontakt" className={labelClass}>
           Telefon ili email
         </label>
         <input
@@ -87,30 +91,33 @@ export function ContactForm() {
         <FieldError id="kontakt-greska" message={errors.kontakt} />
       </div>
 
-      <div>
-        <label htmlFor="prostor" className="label text-stone">
-          Vrsta prostora <span className="normal-case tracking-normal">(nije obavezno)</span>
+      <div className="sm:col-span-2">
+        <label htmlFor="prostor" className={labelClass}>
+          Vrsta prostora <span className="font-normal text-muted">(nije obavezno)</span>
         </label>
-        <select
-          id="prostor"
-          name="prostor"
-          defaultValue=""
-          aria-invalid={errors.prostor ? true : undefined}
-          aria-describedby={describedBy("prostor")}
-          className={inputClass}
-        >
-          <option value="" className="bg-ink">Izaberite</option>
-          {spaceTypes.map((type) => (
-            <option key={type} value={type} className="bg-ink">
-              {type}
-            </option>
-          ))}
-        </select>
+        <div className="relative mt-2">
+          <select
+            id="prostor"
+            name="prostor"
+            defaultValue=""
+            aria-invalid={errors.prostor ? true : undefined}
+            aria-describedby={describedBy("prostor")}
+            className={`${fieldClass} appearance-none pr-11`}
+          >
+            <option value="">Izaberite</option>
+            {spaceTypes.map((type) => (
+              <option key={type} value={type}>
+                {type}
+              </option>
+            ))}
+          </select>
+          <Icon name="chevronDown" className="pointer-events-none absolute top-1/2 right-4 size-4 -translate-y-1/2 text-muted" />
+        </div>
         <FieldError id="prostor-greska" message={errors.prostor} />
       </div>
 
-      <div>
-        <label htmlFor="poruka" className="label text-stone">
+      <div className="sm:col-span-2">
+        <label htmlFor="poruka" className={labelClass}>
           Poruka
         </label>
         <textarea
@@ -132,11 +139,11 @@ export function ContactForm() {
         <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
       </div>
 
-      <div className="flex flex-wrap items-center gap-x-6 gap-y-4">
+      <div className="flex flex-col gap-4 sm:col-span-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6">
         <button
           type="submit"
           disabled={status === "sending"}
-          className="btn btn-solid disabled:opacity-60"
+          className="btn btn-primary w-full disabled:opacity-60 sm:w-auto"
         >
           {status === "sending" ? "Šaljem…" : "Pošalji upit"}
         </button>
@@ -165,7 +172,7 @@ export function ContactForm() {
 function FieldError({ id, message }: { id: string; message?: string }) {
   if (!message) return null;
   return (
-    <p id={id} className="mt-2 text-sm font-medium text-gold">
+    <p id={id} className="mt-2 text-sm font-medium text-error">
       {message}
     </p>
   );

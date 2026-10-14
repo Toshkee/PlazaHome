@@ -7,7 +7,7 @@ import { NavLinks } from "./nav-links";
 import { Picture } from "./picture";
 
 function Logo() {
-  return <Picture name="logo-mark" alt={site.name} sizes="110px" className="h-10 w-auto" load="eager" />;
+  return <Picture name="logo-mark-petrol" alt={site.name} sizes="(min-width: 64rem) 120px, 100px" className="h-9 w-auto lg:h-11" load="eager" />;
 }
 
 export function SiteHeader() {
@@ -22,10 +22,15 @@ export function SiteHeader() {
           <NavLinks />
         </nav>
 
-        <a href={contactLinks.tel} className="btn btn-ghost hidden min-h-11 text-sm lg:inline-flex">
-          <Icon name="phone" className="size-4" />
-          {site.phone.display}
-        </a>
+        <div className="hidden items-center gap-6 lg:flex">
+          <a href={contactLinks.tel} className="hidden min-h-11 items-center gap-2 text-sm font-semibold xl:inline-flex">
+            <Icon name="phone" className="size-4 text-petrol" />
+            {site.phone.display}
+          </a>
+          <Link href="/kontakt" className="btn btn-primary min-h-11 text-sm">
+            Zatražite ponudu
+          </Link>
+        </div>
 
         <MobileMenu logo={<Logo />} />
       </div>

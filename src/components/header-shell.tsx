@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, type ReactNode } from "react";
 
 /**
- * Zaglavlje je providno preko vrha stranice, dobija podlogu čim se skroluje,
+ * Zaglavlje je zakačeno za vrh: dobija liniju čim se skroluje,
  * sklanja se pri skrolu nadolje i vraća pri skrolu nagore.
  */
 export function HeaderShell({ children }: { children: ReactNode }) {
@@ -20,7 +20,7 @@ export function HeaderShell({ children }: { children: ReactNode }) {
     const update = () => {
       frame = 0;
       const y = window.scrollY;
-      header.toggleAttribute("data-solid", y > 24);
+      header.toggleAttribute("data-solid", y > 8);
       if (y <= 320 || y < lastY - 6) header.removeAttribute("data-hidden");
       else if (y > lastY + 6) header.setAttribute("data-hidden", "");
       if (Math.abs(y - lastY) > 6) lastY = y;
@@ -40,8 +40,7 @@ export function HeaderShell({ children }: { children: ReactNode }) {
   return (
     <header
       ref={ref}
-      style={{ viewTransitionName: "site-header" }}
-      className="fixed inset-x-0 top-0 z-50 transition-[translate,background-color,backdrop-filter] duration-500 ease-film data-hidden:not-focus-within:-translate-y-full data-solid:bg-ink/85 data-solid:backdrop-blur-md"
+      className="sticky top-0 z-50 border-b border-transparent bg-paper/95 backdrop-blur-md transition-[translate,border-color] duration-300 ease-out data-hidden:not-focus-within:-translate-y-full data-solid:border-line"
     >
       {children}
     </header>

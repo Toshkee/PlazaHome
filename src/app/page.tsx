@@ -1,10 +1,12 @@
 import { Cta } from "@/components/cta";
-import { ClientsTeaser } from "@/components/home/clients-teaser";
+import { AboutIntro } from "@/components/home/about-intro";
+import { ClientsSection } from "@/components/home/clients-section";
 import { Hero } from "@/components/home/hero";
-import { Intro } from "@/components/home/intro";
-import { Services } from "@/components/home/services";
-import { WorkRail } from "@/components/home/work-rail";
+import { ProductsSection } from "@/components/home/products-section";
+import { ProjectsSection } from "@/components/home/projects-section";
 import { PageShell } from "@/components/page-shell";
+import { ProcessSteps } from "@/components/process-steps";
+import { about } from "@/content/about";
 import { site } from "@/content/site";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -35,10 +37,11 @@ export default function Home() {
   return (
     <PageShell>
       <Hero />
-      <Intro />
-      <WorkRail />
-      <Services />
-      <ClientsTeaser />
+      <AboutIntro />
+      <ProductsSection />
+      <ProjectsSection />
+      <ProcessSteps text={about.paragraphs[1]} />
+      <ClientsSection />
       <Cta />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
     </PageShell>

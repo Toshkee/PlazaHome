@@ -35,8 +35,8 @@ export const site = {
    */
   address: null as null | { street: string; city: string; mapsUrl: string },
 
-  /** Boja trake browsera na telefonu; ista kao --color-ink u globals.css. */
-  themeColor: "#0d1113",
+  /** Boja trake browsera na telefonu; ista kao --color-paper u globals.css. */
+  themeColor: "#f8f6f2",
   description:
     "Zavjese, draperije, rolo i rimske zavjese, drveni venecijaneri i tapete po mjeri. Mjerenje, šivenje i montaža za stanove, vile, hotele i restorane u Crnoj Gori.",
 

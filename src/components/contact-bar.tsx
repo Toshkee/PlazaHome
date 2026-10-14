@@ -27,15 +27,13 @@ export function ContactBar() {
   return (
     <nav
       aria-label="Brzi kontakt"
-      className={`safe-bottom fixed inset-x-0 bottom-0 z-40 border-t border-bone/10 bg-ink/90 backdrop-blur-md transition-transform duration-700 ease-film lg:hidden ${shown ? "translate-y-0" : "translate-y-full focus-within:translate-y-0"}`}
+      className={`safe-bottom fixed inset-x-0 bottom-0 z-40 border-t border-line bg-white/95 backdrop-blur-md transition-transform duration-500 ease-out lg:hidden ${shown ? "translate-y-0" : "translate-y-full focus-within:translate-y-0"}`}
     >
-      <ul className="grid h-bar grid-cols-3 divide-x divide-bone/10">
+      <ul className="grid h-bar grid-cols-3 divide-x divide-line">
         {actions.map((action) => (
           <li key={action.label}>
-            <a href={action.href} className="flex h-full items-center justify-center gap-2 text-sm font-medium">
-              <span className="text-gold">
-                <Icon name={action.icon} className="size-4" />
-              </span>
+            <a href={action.href} className="flex h-full items-center justify-center gap-2 text-sm font-semibold">
+              <Icon name={action.icon} className="size-[1.125rem] text-petrol" />
               {action.label}
             </a>
           </li>

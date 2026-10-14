@@ -22,61 +22,90 @@ export default function ProductsPage() {
     <PageShell>
       <PageHero
         label="Proizvodi"
-        title={["Zavjese, draperije", "i zaštita", "od sunca"]}
-        accent={[1]}
+        title="Zavjese, draperije i zaštita od sunca"
         lead={productsIntro}
-        image={{
-          name: "zavjese-draperije",
-          alt: "Dnevna soba sa bijelim zavjesama i draperijama boje kafe na velikom prozoru",
-        }}
-      />
-
-      <div className="on-light">
-        {withImage.map((product, i) => {
-          const flip = i % 2 === 1;
-          return (
-            <section
-              key={product.slug}
-              id={product.slug}
-              aria-labelledby={`${product.slug}-title`}
-              className="container-page grid scroll-mt-20 items-center gap-8 border-b border-ink/10 py-16 lg:grid-cols-12 lg:gap-x-12 lg:py-24"
-            >
-              <div
-                className={`relative aspect-4/5 overflow-clip bg-ink/10 lg:col-span-6 ${flip ? "lg:col-start-7" : ""}`}
-                data-reveal="curtain"
-              >
-                {product.image && (
-                  <Picture name={product.image.name} alt={product.image.alt} sizes="(min-width: 64rem) 45vw, 100vw" className="parallax" />
-                )}
-              </div>
-              <div className={`lg:col-span-5 ${flip ? "lg:col-start-1 lg:row-start-1" : "lg:col-start-8"}`} data-reveal="up">
-                <span className="label text-muted">{String(i + 1).padStart(2, "0")}</span>
-                <h2 id={`${product.slug}-title`} className="display mt-4 text-2xl">
+      >
+        {/* Brzi skok na proizvod; na telefonu štedi skrolovanje. */}
+        <nav aria-label="Proizvodi na ovoj stranici" className="mt-7">
+          <ul className="flex flex-wrap gap-2">
+            {products.map((product) => (
+              <li key={product.slug}>
+                <a
+                  href={`#${product.slug}`}
+                  className="inline-flex min-h-10 items-center border border-line bg-white px-3.5 text-sm font-medium transition-colors hover:border-petrol hover:text-petrol"
+                >
                   {product.name}
-                </h2>
-                <p className="mt-4 max-w-sm text-lg text-muted">{product.text}</p>
-              </div>
-            </section>
-          );
-        })}
-
-        {textOnly.map((product) => (
-          <section key={product.slug} id={product.slug} aria-labelledby={`${product.slug}-title`} className="container-page scroll-mt-20 py-16 lg:py-24">
-            <div className="grid gap-8 lg:grid-cols-12 lg:gap-x-12" data-reveal="up">
-              <h2 id={`${product.slug}-title`} className="display text-2xl lg:col-span-6">
-                {product.name}
-              </h2>
-              <div className="lg:col-span-5 lg:col-start-8">
-                <p className="text-lg text-muted">{product.text}</p>
-                <a href={contactLinks.whatsapp} className="btn btn-dark mt-8">
-                  <Icon name="whatsapp" />
-                  Pitajte za vaš prostor
                 </a>
-              </div>
-            </div>
-          </section>
-        ))}
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </PageHero>
+
+      <div className="container-page py-section">
+        <div className="grid gap-y-16 lg:gap-y-20">
+          {withImage.map((product, i) => {
+            const flip = i % 2 === 1;
+            return (
+              <section
+                key={product.slug}
+                id={product.slug}
+                aria-labelledby={`${product.slug}-title`}
+                className="grid scroll-mt-24 gap-6 sm:gap-8 lg:grid-cols-12 lg:items-center lg:gap-x-12"
+              >
+                <div
+                  className={`aspect-4/3 overflow-clip bg-sand lg:col-span-5 lg:aspect-square ${flip ? "lg:col-start-8" : ""}`}
+                  data-reveal
+                >
+                  {product.image && (
+                    <Picture
+                      name={product.image.name}
+                      alt={product.image.alt}
+                      sizes="(min-width: 80rem) 32rem, (min-width: 64rem) 40vw, 100vw"
+                      className="size-full object-cover"
+                    />
+                  )}
+                </div>
+                <div
+                  className={`lg:col-span-5 ${flip ? "lg:col-start-2 lg:row-start-1" : "lg:col-start-7"}`}
+                  data-reveal
+                >
+                  <h2 id={`${product.slug}-title`} className="text-2xl">
+                    {product.name}
+                  </h2>
+                  <p className="mt-3 max-w-md text-muted lg:mt-4 lg:text-lg">{product.text}</p>
+                  <a href={contactLinks.whatsapp} className="link-arrow mt-3 lg:mt-5">
+                    <Icon name="whatsapp" className="size-4" />
+                    Pitajte za vaš prostor
+                  </a>
+                </div>
+              </section>
+            );
+          })}
+        </div>
       </div>
+
+      {textOnly.map((product) => (
+        <section
+          key={product.slug}
+          id={product.slug}
+          aria-labelledby={`${product.slug}-title`}
+          className="scroll-mt-24 bg-sand py-section"
+        >
+          <div className="container-page grid gap-4 lg:grid-cols-12 lg:items-center lg:gap-x-12" data-reveal>
+            <h2 id={`${product.slug}-title`} className="text-2xl lg:col-span-6">
+              {product.name}
+            </h2>
+            <div className="lg:col-span-5 lg:col-start-8">
+              <p className="text-muted lg:text-lg">{product.text}</p>
+              <a href={contactLinks.whatsapp} className="btn btn-primary mt-6 w-full sm:w-auto">
+                <Icon name="whatsapp" />
+                Pitajte za vaš prostor
+              </a>
+            </div>
+          </div>
+        </section>
+      ))}
 
       <Cta />
     </PageShell>
