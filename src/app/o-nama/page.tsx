@@ -54,7 +54,7 @@ export default function AboutPage() {
         </div>
 
         {/* Dva prostora, dvije vrste klijenata: vila i restoran. */}
-        <div className="container-page mt-14 grid grid-cols-2 gap-3 sm:gap-5 lg:mt-24 lg:gap-8">
+        <div className="container-page mt-14 grid grid-cols-2 gap-3 sm:gap-5 lg:mt-32 lg:gap-8">
           {photos.map((photo, i) => (
             <div key={photo.name} className="aspect-3/4 overflow-clip bg-sand lg:aspect-4/5" data-reveal="image" style={vars({ "--delay": `${i * 0.12}s` })}>
               <Picture name={photo.name} alt={photo.alt} sizes="(min-width: 80rem) 38rem, 50vw" className="size-full object-cover" />

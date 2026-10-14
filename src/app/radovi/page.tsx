@@ -43,7 +43,7 @@ function PhotoButton({ image, sizes, className = "" }: { image: ProjectImage; si
 
 function InstagramLink({ href, label }: { href: string; label: string }) {
   return (
-    <a href={href} className="link-arrow text-sm">
+    <a href={href} className="link-arrow">
       {label}
       <Icon name="arrowUpRight" className="size-4" />
     </a>

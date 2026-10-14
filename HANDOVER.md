@@ -8,14 +8,14 @@ Stanje na dan 2026-10-14. Kod: https://github.com/Toshkee/PlazaHome (grana `main
 
 | Stranica | Šta je na njoj | Pitanje posjetioca |
 |---|---|---|
-| `/` Početna | dron snimak vile preko cijelog ekrana, naslov, WhatsApp i poziv; o nama sa dvije fotografije i tri brojke; proizvodi; veliki kadar vile; tri odabrana projekta; „Kako radimo”; utisak i vrste klijenata; poziv na kontakt | Šta je ovo i šta da uradim? |
+| `/` Početna | dron snimak vile preko cijelog ekrana, naslov i poziv na konsultaciju; o nama sa dvije fotografije; proizvodi; veliki kadar vile; tri odabrana projekta; „Kako radimo”; utisak i vrste klijenata; poziv na kontakt | Šta je ovo i šta da uradim? |
 | `/o-nama` | priča, činjenice, dvije fotografije, „Kako radimo” u 4 koraka | Ko ste i kako radite? |
 | `/radovi` | vila (dron snimak i dvije fotografije), još 4 projekta, pregled preko cijelog ekrana, linkovi na Instagram | Kako izgleda vaš rad? |
 | `/klijenti` | mjesta gdje su radili, 5 vrsta klijenata sa fotografijom, utisak Doline Pive | Za koga radite, zašto da vam vjerujem? |
 | `/proizvodi` | 6 proizvoda sa fotografijom + garnišne i šine | Šta nudite? |
 | `/kontakt` | telefon, WhatsApp, Viber, email, Instagram, forma | Kako da zakažem? |
 
-Na telefonu, čim se skroluje ispod vrha, pri dnu je stalno vidljiva traka sa dugmadima Pozovi, WhatsApp i Viber.
+Na telefonu, čim se skroluje ispod vrha, dolje desno je dugme „Kontakt”. Otvara Pozovite, WhatsApp i Viber. Na stranici Kontakt ga nema.
 
 ## Odluke i zašto
 
@@ -27,6 +27,13 @@ Na telefonu, čim se skroluje ispod vrha, pri dnu je stalno vidljiva traka sa du
   - Na početnoj su „momenti” koji razbijaju ritam sekcija: kolaž dvije fotografije, veliki kadar vile sa paralaksom, asimetričan raspored radova, koraci na petroleju, veliki citat.
   - Pokret je suzdržan: tekst na vrhu izlazi redom, fotografije se pri pojavi „smire” iz bližeg kadra, sporo uvećanje na hover. Nema uvodne zavjese, trake teksta ni prelaza između stranica.
   - Bez biblioteka za animacije: CSS i nekoliko malih komponenti (vidi README, „Animacije”).
+- **Luksuzniji prolaz (2026-10-14).** Sajt treba da djeluje skuplje. To ne postižu novi efekti (filmska verzija ih je imala i odbijena je), nego uzdržanost:
+  - Manje prodajnog tona. U heroju i na dnu stranica je jedan poziv, „Zakažite konsultaciju”; WhatsApp i telefon su tiho ispod njega. U zaglavlju je „Konsultacija”, bez broja telefona.
+  - Na početnoj nema kvačica ni tri brojke. „30 godina” je već u naslovu „O nama”, a „do 6 m” u velikom kadru vile.
+  - Na telefonu je umjesto trake sa tri dugmeta jedno dugme „Kontakt” (HTML popover). Kompromis: poziv je dva dodira umjesto jednog.
+  - Razmak između sekcija na desktopu je 176 px (bio je 112 px); na telefonu je isti.
+  - Dugmad, meni, linkovi i naslovi u podnožju su mala verzalna slova, razmaknuta kao „HOME” u logotipu. Dugmad imaju tanak okvir umjesto pune boje. Puna boja je samo na slanju forme i na dugmetu „Kontakt” na telefonu.
+  - Fotografije imaju zajednički ton (malo toplije i malo manje zasićeno), pa djeluju kao jedna serija, a ne kao snimci sa različitih telefona. Vrijednosti su u `GRADE` u `scripts/media.mjs`. Hero snimak dobija isti smjer u `scripts/video.sh`, ali samo u sjenama i srednjim tonovima, jer bi isto množenje kanala nebo učinilo tirkiznim. Poster je prvi kadar već obrađenog snimka.
 - **Paleta.** Petrolej plava `#26546C` (pozadina logotipa) je boja brenda. Sav tekst ima kontrast najmanje 4,5:1 (izračunato za svaki par boja; vrijednosti su u komentarima u `src/app/globals.css`).
 - **Hero video** (izbor klijenta: Instagram objava DV3HxtDiJyH):
   - Preko cijelog ekrana i na telefonu i na desktopu. Snimak je uspravan (720×1272 poslije isijecanja 4 crna reda piksela gore i dolje), pa je na širokom ekranu isječen i uvećan; blago zrno to ublažava. Oštriji kadar na desktopu traži original snimka u većoj rezoluciji (pitanje za @djurisicmedia).
@@ -57,6 +64,14 @@ Na telefonu, čim se skroluje ispod vrha, pri dnu je stalno vidljiva traka sa du
 > (produkcijski build kroz wrangler); bez horizontalnog skrola; sve dodirne površine na telefonu ≥ 44 px (automatska provjera);
 > kontrast boja izračunat po paru (tekst ≥ 4,5:1); `prefers-reduced-motion`: sav sadržaj vidljiv, video ne kreće sam.
 > Lighthouse i provjera na pravom telefonu **nisu** ponovljeni.
+>
+> Poslije luksuznijeg prolaza (2026-10-14) provjereno je:
+> - build, lint i typecheck su čisti;
+> - konzola ima 0 grešaka na svih šest stranica i na 404 (produkcijski build kroz wrangler, desktop);
+> - na 360, 390 i 768 px nema horizontalnog skrola, a sve dodirne površine su ≥ 44 px (automatska provjera);
+> - kontrast novog sitnog teksta je izračunat (najmanje 4,8:1).
+>
+> Usput je ispravljen horizontalni skrol na stranici Kontakt na 360 px: email adresa se sada prelama.
 
 Prva verzija, mjereno na produkcijskom buildu (`npm run build`), lokalno kroz `wrangler pages dev`, 2026-10-13.
 

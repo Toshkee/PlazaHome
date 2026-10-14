@@ -13,8 +13,8 @@ export function Testimonial({ className = "" }: { className?: string }) {
         <p className="statement">„{item.quote}“</p>
       </blockquote>
       <figcaption className="mt-8 flex flex-col items-center gap-1 lg:mt-10">
-        <span className="font-semibold">{item.author}</span>
-        <a href={item.source.url} className="link-arrow text-sm">
+        <span className="font-medium">{item.author}</span>
+        <a href={item.source.url} className="link-arrow">
           {item.source.label}
           <Icon name="arrowUpRight" className="size-4" />
         </a>

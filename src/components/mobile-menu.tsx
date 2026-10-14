@@ -27,7 +27,7 @@ export function MobileMenu({ logo }: { logo: ReactNode }) {
         type="button"
         aria-haspopup="dialog"
         onClick={() => dialogRef.current?.showModal()}
-        className="-mr-2.5 inline-flex min-h-11 items-center gap-2.5 px-2.5 text-[0.9375rem] font-semibold"
+        className="caps -mr-2.5 inline-flex min-h-11 items-center gap-3 px-2.5"
       >
         Meni
         <Icon name="menu" className="size-5" />
@@ -47,7 +47,7 @@ export function MobileMenu({ logo }: { logo: ReactNode }) {
               type="button"
               onClick={close}
               autoFocus
-              className="-mr-2.5 inline-flex min-h-11 items-center gap-2.5 px-2.5 text-[0.9375rem] font-semibold"
+              className="caps -mr-2.5 inline-flex min-h-11 items-center gap-3 px-2.5"
             >
               Zatvori
               <Icon name="close" className="size-5" />
@@ -61,7 +61,7 @@ export function MobileMenu({ logo }: { logo: ReactNode }) {
                   href="/"
                   onClick={close}
                   aria-current={pathname === "/" ? "page" : undefined}
-                  className="flex min-h-15 items-center justify-between gap-4 text-2xl font-medium aria-[current=page]:text-petrol"
+                  className="flex min-h-16 items-center justify-between gap-4 text-2xl font-light tracking-[-0.03em] aria-[current=page]:text-petrol"
                 >
                   Početna
                   <Icon name="chevronRight" className="size-5 text-muted" />
@@ -73,7 +73,7 @@ export function MobileMenu({ logo }: { logo: ReactNode }) {
                     href={item.href}
                     onClick={close}
                     aria-current={pathname === item.href ? "page" : undefined}
-                    className="flex min-h-15 items-center justify-between gap-4 text-2xl font-medium aria-[current=page]:text-petrol"
+                    className="flex min-h-16 items-center justify-between gap-4 text-2xl font-light tracking-[-0.03em] aria-[current=page]:text-petrol"
                   >
                     {item.label}
                     <Icon name="chevronRight" className="size-5 text-muted" />
@@ -89,7 +89,7 @@ export function MobileMenu({ logo }: { logo: ReactNode }) {
                 <Icon name="phone" className="size-4" />
                 Pozovite
               </a>
-              <a href={contactLinks.whatsapp} className="btn btn-primary">
+              <a href={contactLinks.whatsapp} className="btn btn-outline">
                 <Icon name="whatsapp" className="size-4" />
                 WhatsApp
               </a>

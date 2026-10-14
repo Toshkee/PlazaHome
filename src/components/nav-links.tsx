@@ -9,7 +9,7 @@ export function NavLinks() {
   const pathname = usePathname();
 
   return (
-    <ul className="flex items-center gap-8">
+    <ul className="flex items-center gap-10">
       {navigation.map((item) => {
         const current = pathname === item.href;
         return (
@@ -17,7 +17,7 @@ export function NavLinks() {
             <Link
               href={item.href}
               aria-current={current ? "page" : undefined}
-              className="relative inline-flex min-h-11 items-center text-[0.9375rem] font-medium text-ink/75 transition-colors hover:text-ink aria-[current=page]:text-ink group-data-overlay:text-white/85 group-data-overlay:hover:text-white group-data-overlay:aria-[current=page]:text-white"
+              className="caps relative inline-flex min-h-11 items-center text-ink/75 transition-colors hover:text-ink aria-[current=page]:text-ink group-data-overlay:text-white/85 group-data-overlay:hover:text-white group-data-overlay:aria-[current=page]:text-white"
             >
               {item.label}
               <span

@@ -10,7 +10,7 @@ export function ProcessSteps({ text, tone = "dark" }: { text?: string; tone?: "l
     <section aria-labelledby="koraci-title" className={`py-section ${dark ? "on-dark bg-petrol text-white" : "bg-sand"}`}>
       <div className="container-page">
         <SectionHeading id="koraci-title" eyebrow="Kako radimo" title="Od mjerenja do montaže" text={text} tone={tone} />
-        <ol className="mt-12 grid gap-x-8 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4">
+        <ol className="mt-12 grid gap-x-8 sm:grid-cols-2 lg:mt-20 lg:grid-cols-4">
           {about.steps.map((step, i) => (
             <li
               key={step.title}

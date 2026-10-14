@@ -2,75 +2,43 @@
 import type { MediaImage } from "@/lib/media";
 
 export const media = {
-  "hero-poster": {
-    "width": 720,
-    "height": 1272,
-    "avif": [
-      {
-        "width": 360,
-        "src": "/media/hero-poster-360-3f7de2f0.avif"
-      },
-      {
-        "width": 540,
-        "src": "/media/hero-poster-540-3f7de2f0.avif"
-      },
-      {
-        "width": 720,
-        "src": "/media/hero-poster-720-3f7de2f0.avif"
-      }
-    ],
-    "webp": [
-      {
-        "width": 360,
-        "src": "/media/hero-poster-360-3f7de2f0.webp"
-      },
-      {
-        "width": 540,
-        "src": "/media/hero-poster-540-3f7de2f0.webp"
-      },
-      {
-        "width": 720,
-        "src": "/media/hero-poster-720-3f7de2f0.webp"
-      }
-    ]
-  },
   "vila-salon": {
     "width": 1440,
     "height": 1920,
     "avif": [
       {
         "width": 480,
-        "src": "/media/vila-salon-480-ff3668da.avif"
+        "src": "/media/vila-salon-480-cc1df78c.avif"
       },
       {
         "width": 800,
-        "src": "/media/vila-salon-800-ff3668da.avif"
+        "src": "/media/vila-salon-800-cc1df78c.avif"
       },
       {
         "width": 1200,
-        "src": "/media/vila-salon-1200-ff3668da.avif"
+        "src": "/media/vila-salon-1200-cc1df78c.avif"
       },
       {
         "width": 1440,
-        "src": "/media/vila-salon-1440-ff3668da.avif"
+        "src": "/media/vila-salon-1440-cc1df78c.avif"
       }
     ],
     "webp": [
       {
         "width": 480,
-        "src": "/media/vila-salon-480-ff3668da.webp"
+        "src": "/media/vila-salon-480-cc1df78c.webp"
       },
       {
         "width": 800,
-        "src": "/media/vila-salon-800-ff3668da.webp"
+        "src": "/media/vila-salon-800-cc1df78c.webp"
       },
       {
         "width": 1200,
-        "src": "/media/vila-salon-1200-ff3668da.webp"
+        "src": "/media/vila-salon-1200-cc1df78c.webp"
       },
       {
         "width": 1440,
-        "src": "/media/vila-salon-1440-ff3668da.webp"
+        "src": "/media/vila-salon-1440-cc1df78c.webp"
       }
     ]
   },
@@ -80,37 +48,37 @@ export const media = {
     "avif": [
       {
         "width": 480,
-        "src": "/media/vila-salon-sumrak-480-b1157c12.avif"
+        "src": "/media/vila-salon-sumrak-480-c2809619.avif"
       },
       {
         "width": 800,
-        "src": "/media/vila-salon-sumrak-800-b1157c12.avif"
+        "src": "/media/vila-salon-sumrak-800-c2809619.avif"
       },
       {
         "width": 1200,
-        "src": "/media/vila-salon-sumrak-1200-b1157c12.avif"
+        "src": "/media/vila-salon-sumrak-1200-c2809619.avif"
       },
       {
         "width": 1440,
-        "src": "/media/vila-salon-sumrak-1440-b1157c12.avif"
+        "src": "/media/vila-salon-sumrak-1440-c2809619.avif"
       }
     ],
     "webp": [
       {
         "width": 480,
-        "src": "/media/vila-salon-sumrak-480-b1157c12.webp"
+        "src": "/media/vila-salon-sumrak-480-c2809619.webp"
       },
       {
         "width": 800,
-        "src": "/media/vila-salon-sumrak-800-b1157c12.webp"
+        "src": "/media/vila-salon-sumrak-800-c2809619.webp"
       },
       {
         "width": 1200,
-        "src": "/media/vila-salon-sumrak-1200-b1157c12.webp"
+        "src": "/media/vila-salon-sumrak-1200-c2809619.webp"
       },
       {
         "width": 1440,
-        "src": "/media/vila-salon-sumrak-1440-b1157c12.webp"
+        "src": "/media/vila-salon-sumrak-1440-c2809619.webp"
       }
     ]
   },
@@ -120,37 +88,37 @@ export const media = {
     "avif": [
       {
         "width": 480,
-        "src": "/media/lustica-bay-480-edde7d15.avif"
+        "src": "/media/lustica-bay-480-cf58dec9.avif"
       },
       {
         "width": 800,
-        "src": "/media/lustica-bay-800-edde7d15.avif"
+        "src": "/media/lustica-bay-800-cf58dec9.avif"
       },
       {
         "width": 1200,
-        "src": "/media/lustica-bay-1200-edde7d15.avif"
+        "src": "/media/lustica-bay-1200-cf58dec9.avif"
       },
       {
         "width": 1600,
-        "src": "/media/lustica-bay-1600-edde7d15.avif"
+        "src": "/media/lustica-bay-1600-cf58dec9.avif"
       }
     ],
     "webp": [
       {
         "width": 480,
-        "src": "/media/lustica-bay-480-edde7d15.webp"
+        "src": "/media/lustica-bay-480-cf58dec9.webp"
       },
       {
         "width": 800,
-        "src": "/media/lustica-bay-800-edde7d15.webp"
+        "src": "/media/lustica-bay-800-cf58dec9.webp"
       },
       {
         "width": 1200,
-        "src": "/media/lustica-bay-1200-edde7d15.webp"
+        "src": "/media/lustica-bay-1200-cf58dec9.webp"
       },
       {
         "width": 1600,
-        "src": "/media/lustica-bay-1600-edde7d15.webp"
+        "src": "/media/lustica-bay-1600-cf58dec9.webp"
       }
     ]
   },
@@ -160,37 +128,37 @@ export const media = {
     "avif": [
       {
         "width": 480,
-        "src": "/media/kamena-kuca-480-f22a34ee.avif"
+        "src": "/media/kamena-kuca-480-54df5b34.avif"
       },
       {
         "width": 800,
-        "src": "/media/kamena-kuca-800-f22a34ee.avif"
+        "src": "/media/kamena-kuca-800-54df5b34.avif"
       },
       {
         "width": 1200,
-        "src": "/media/kamena-kuca-1200-f22a34ee.avif"
+        "src": "/media/kamena-kuca-1200-54df5b34.avif"
       },
       {
         "width": 1600,
-        "src": "/media/kamena-kuca-1600-f22a34ee.avif"
+        "src": "/media/kamena-kuca-1600-54df5b34.avif"
       }
     ],
     "webp": [
       {
         "width": 480,
-        "src": "/media/kamena-kuca-480-f22a34ee.webp"
+        "src": "/media/kamena-kuca-480-54df5b34.webp"
       },
       {
         "width": 800,
-        "src": "/media/kamena-kuca-800-f22a34ee.webp"
+        "src": "/media/kamena-kuca-800-54df5b34.webp"
       },
       {
         "width": 1200,
-        "src": "/media/kamena-kuca-1200-f22a34ee.webp"
+        "src": "/media/kamena-kuca-1200-54df5b34.webp"
       },
       {
         "width": 1600,
-        "src": "/media/kamena-kuca-1600-f22a34ee.webp"
+        "src": "/media/kamena-kuca-1600-54df5b34.webp"
       }
     ]
   },
@@ -200,37 +168,37 @@ export const media = {
     "avif": [
       {
         "width": 480,
-        "src": "/media/drvena-kuca-480-8dc724b4.avif"
+        "src": "/media/drvena-kuca-480-12f07222.avif"
       },
       {
         "width": 800,
-        "src": "/media/drvena-kuca-800-8dc724b4.avif"
+        "src": "/media/drvena-kuca-800-12f07222.avif"
       },
       {
         "width": 1200,
-        "src": "/media/drvena-kuca-1200-8dc724b4.avif"
+        "src": "/media/drvena-kuca-1200-12f07222.avif"
       },
       {
         "width": 1600,
-        "src": "/media/drvena-kuca-1600-8dc724b4.avif"
+        "src": "/media/drvena-kuca-1600-12f07222.avif"
       }
     ],
     "webp": [
       {
         "width": 480,
-        "src": "/media/drvena-kuca-480-8dc724b4.webp"
+        "src": "/media/drvena-kuca-480-12f07222.webp"
       },
       {
         "width": 800,
-        "src": "/media/drvena-kuca-800-8dc724b4.webp"
+        "src": "/media/drvena-kuca-800-12f07222.webp"
       },
       {
         "width": 1200,
-        "src": "/media/drvena-kuca-1200-8dc724b4.webp"
+        "src": "/media/drvena-kuca-1200-12f07222.webp"
       },
       {
         "width": 1600,
-        "src": "/media/drvena-kuca-1600-8dc724b4.webp"
+        "src": "/media/drvena-kuca-1600-12f07222.webp"
       }
     ]
   },
@@ -240,37 +208,37 @@ export const media = {
     "avif": [
       {
         "width": 480,
-        "src": "/media/restoran-lucni-prozori-480-959196cb.avif"
+        "src": "/media/restoran-lucni-prozori-480-2bb97772.avif"
       },
       {
         "width": 800,
-        "src": "/media/restoran-lucni-prozori-800-959196cb.avif"
+        "src": "/media/restoran-lucni-prozori-800-2bb97772.avif"
       },
       {
         "width": 1200,
-        "src": "/media/restoran-lucni-prozori-1200-959196cb.avif"
+        "src": "/media/restoran-lucni-prozori-1200-2bb97772.avif"
       },
       {
         "width": 1440,
-        "src": "/media/restoran-lucni-prozori-1440-959196cb.avif"
+        "src": "/media/restoran-lucni-prozori-1440-2bb97772.avif"
       }
     ],
     "webp": [
       {
         "width": 480,
-        "src": "/media/restoran-lucni-prozori-480-959196cb.webp"
+        "src": "/media/restoran-lucni-prozori-480-2bb97772.webp"
       },
       {
         "width": 800,
-        "src": "/media/restoran-lucni-prozori-800-959196cb.webp"
+        "src": "/media/restoran-lucni-prozori-800-2bb97772.webp"
       },
       {
         "width": 1200,
-        "src": "/media/restoran-lucni-prozori-1200-959196cb.webp"
+        "src": "/media/restoran-lucni-prozori-1200-2bb97772.webp"
       },
       {
         "width": 1440,
-        "src": "/media/restoran-lucni-prozori-1440-959196cb.webp"
+        "src": "/media/restoran-lucni-prozori-1440-2bb97772.webp"
       }
     ]
   },
@@ -280,37 +248,37 @@ export const media = {
     "avif": [
       {
         "width": 480,
-        "src": "/media/zavjese-draperije-480-feb5dfb8.avif"
+        "src": "/media/zavjese-draperije-480-9d84dac6.avif"
       },
       {
         "width": 800,
-        "src": "/media/zavjese-draperije-800-feb5dfb8.avif"
+        "src": "/media/zavjese-draperije-800-9d84dac6.avif"
       },
       {
         "width": 1200,
-        "src": "/media/zavjese-draperije-1200-feb5dfb8.avif"
+        "src": "/media/zavjese-draperije-1200-9d84dac6.avif"
       },
       {
         "width": 1600,
-        "src": "/media/zavjese-draperije-1600-feb5dfb8.avif"
+        "src": "/media/zavjese-draperije-1600-9d84dac6.avif"
       }
     ],
     "webp": [
       {
         "width": 480,
-        "src": "/media/zavjese-draperije-480-feb5dfb8.webp"
+        "src": "/media/zavjese-draperije-480-9d84dac6.webp"
       },
       {
         "width": 800,
-        "src": "/media/zavjese-draperije-800-feb5dfb8.webp"
+        "src": "/media/zavjese-draperije-800-9d84dac6.webp"
       },
       {
         "width": 1200,
-        "src": "/media/zavjese-draperije-1200-feb5dfb8.webp"
+        "src": "/media/zavjese-draperije-1200-9d84dac6.webp"
       },
       {
         "width": 1600,
-        "src": "/media/zavjese-draperije-1600-feb5dfb8.webp"
+        "src": "/media/zavjese-draperije-1600-9d84dac6.webp"
       }
     ]
   },
@@ -320,37 +288,37 @@ export const media = {
     "avif": [
       {
         "width": 480,
-        "src": "/media/draperije-spavaca-480-9de199b6.avif"
+        "src": "/media/draperije-spavaca-480-2047ea9c.avif"
       },
       {
         "width": 800,
-        "src": "/media/draperije-spavaca-800-9de199b6.avif"
+        "src": "/media/draperije-spavaca-800-2047ea9c.avif"
       },
       {
         "width": 1200,
-        "src": "/media/draperije-spavaca-1200-9de199b6.avif"
+        "src": "/media/draperije-spavaca-1200-2047ea9c.avif"
       },
       {
         "width": 1600,
-        "src": "/media/draperije-spavaca-1600-9de199b6.avif"
+        "src": "/media/draperije-spavaca-1600-2047ea9c.avif"
       }
     ],
     "webp": [
       {
         "width": 480,
-        "src": "/media/draperije-spavaca-480-9de199b6.webp"
+        "src": "/media/draperije-spavaca-480-2047ea9c.webp"
       },
       {
         "width": 800,
-        "src": "/media/draperije-spavaca-800-9de199b6.webp"
+        "src": "/media/draperije-spavaca-800-2047ea9c.webp"
       },
       {
         "width": 1200,
-        "src": "/media/draperije-spavaca-1200-9de199b6.webp"
+        "src": "/media/draperije-spavaca-1200-2047ea9c.webp"
       },
       {
         "width": 1600,
-        "src": "/media/draperije-spavaca-1600-9de199b6.webp"
+        "src": "/media/draperije-spavaca-1600-2047ea9c.webp"
       }
     ]
   },
@@ -360,37 +328,37 @@ export const media = {
     "avif": [
       {
         "width": 480,
-        "src": "/media/rimske-zavjese-480-b0e6fac6.avif"
+        "src": "/media/rimske-zavjese-480-cc281979.avif"
       },
       {
         "width": 800,
-        "src": "/media/rimske-zavjese-800-b0e6fac6.avif"
+        "src": "/media/rimske-zavjese-800-cc281979.avif"
       },
       {
         "width": 1200,
-        "src": "/media/rimske-zavjese-1200-b0e6fac6.avif"
+        "src": "/media/rimske-zavjese-1200-cc281979.avif"
       },
       {
         "width": 1600,
-        "src": "/media/rimske-zavjese-1600-b0e6fac6.avif"
+        "src": "/media/rimske-zavjese-1600-cc281979.avif"
       }
     ],
     "webp": [
       {
         "width": 480,
-        "src": "/media/rimske-zavjese-480-b0e6fac6.webp"
+        "src": "/media/rimske-zavjese-480-cc281979.webp"
       },
       {
         "width": 800,
-        "src": "/media/rimske-zavjese-800-b0e6fac6.webp"
+        "src": "/media/rimske-zavjese-800-cc281979.webp"
       },
       {
         "width": 1200,
-        "src": "/media/rimske-zavjese-1200-b0e6fac6.webp"
+        "src": "/media/rimske-zavjese-1200-cc281979.webp"
       },
       {
         "width": 1600,
-        "src": "/media/rimske-zavjese-1600-b0e6fac6.webp"
+        "src": "/media/rimske-zavjese-1600-cc281979.webp"
       }
     ]
   },
@@ -400,37 +368,37 @@ export const media = {
     "avif": [
       {
         "width": 480,
-        "src": "/media/drveni-venecijaneri-480-a60607ee.avif"
+        "src": "/media/drveni-venecijaneri-480-2fa66ef1.avif"
       },
       {
         "width": 800,
-        "src": "/media/drveni-venecijaneri-800-a60607ee.avif"
+        "src": "/media/drveni-venecijaneri-800-2fa66ef1.avif"
       },
       {
         "width": 1200,
-        "src": "/media/drveni-venecijaneri-1200-a60607ee.avif"
+        "src": "/media/drveni-venecijaneri-1200-2fa66ef1.avif"
       },
       {
         "width": 1440,
-        "src": "/media/drveni-venecijaneri-1440-a60607ee.avif"
+        "src": "/media/drveni-venecijaneri-1440-2fa66ef1.avif"
       }
     ],
     "webp": [
       {
         "width": 480,
-        "src": "/media/drveni-venecijaneri-480-a60607ee.webp"
+        "src": "/media/drveni-venecijaneri-480-2fa66ef1.webp"
       },
       {
         "width": 800,
-        "src": "/media/drveni-venecijaneri-800-a60607ee.webp"
+        "src": "/media/drveni-venecijaneri-800-2fa66ef1.webp"
       },
       {
         "width": 1200,
-        "src": "/media/drveni-venecijaneri-1200-a60607ee.webp"
+        "src": "/media/drveni-venecijaneri-1200-2fa66ef1.webp"
       },
       {
         "width": 1440,
-        "src": "/media/drveni-venecijaneri-1440-a60607ee.webp"
+        "src": "/media/drveni-venecijaneri-1440-2fa66ef1.webp"
       }
     ]
   },
@@ -440,37 +408,37 @@ export const media = {
     "avif": [
       {
         "width": 480,
-        "src": "/media/rolo-zavjese-480-c5569c7e.avif"
+        "src": "/media/rolo-zavjese-480-712dfd6d.avif"
       },
       {
         "width": 800,
-        "src": "/media/rolo-zavjese-800-c5569c7e.avif"
+        "src": "/media/rolo-zavjese-800-712dfd6d.avif"
       },
       {
         "width": 1200,
-        "src": "/media/rolo-zavjese-1200-c5569c7e.avif"
+        "src": "/media/rolo-zavjese-1200-712dfd6d.avif"
       },
       {
         "width": 1440,
-        "src": "/media/rolo-zavjese-1440-c5569c7e.avif"
+        "src": "/media/rolo-zavjese-1440-712dfd6d.avif"
       }
     ],
     "webp": [
       {
         "width": 480,
-        "src": "/media/rolo-zavjese-480-c5569c7e.webp"
+        "src": "/media/rolo-zavjese-480-712dfd6d.webp"
       },
       {
         "width": 800,
-        "src": "/media/rolo-zavjese-800-c5569c7e.webp"
+        "src": "/media/rolo-zavjese-800-712dfd6d.webp"
       },
       {
         "width": 1200,
-        "src": "/media/rolo-zavjese-1200-c5569c7e.webp"
+        "src": "/media/rolo-zavjese-1200-712dfd6d.webp"
       },
       {
         "width": 1440,
-        "src": "/media/rolo-zavjese-1440-c5569c7e.webp"
+        "src": "/media/rolo-zavjese-1440-712dfd6d.webp"
       }
     ]
   },
@@ -480,37 +448,69 @@ export const media = {
     "avif": [
       {
         "width": 480,
-        "src": "/media/tapete-480-b6a8eda5.avif"
+        "src": "/media/tapete-480-97d18a64.avif"
       },
       {
         "width": 800,
-        "src": "/media/tapete-800-b6a8eda5.avif"
+        "src": "/media/tapete-800-97d18a64.avif"
       },
       {
         "width": 1200,
-        "src": "/media/tapete-1200-b6a8eda5.avif"
+        "src": "/media/tapete-1200-97d18a64.avif"
       },
       {
         "width": 1600,
-        "src": "/media/tapete-1600-b6a8eda5.avif"
+        "src": "/media/tapete-1600-97d18a64.avif"
       }
     ],
     "webp": [
       {
         "width": 480,
-        "src": "/media/tapete-480-b6a8eda5.webp"
+        "src": "/media/tapete-480-97d18a64.webp"
       },
       {
         "width": 800,
-        "src": "/media/tapete-800-b6a8eda5.webp"
+        "src": "/media/tapete-800-97d18a64.webp"
       },
       {
         "width": 1200,
-        "src": "/media/tapete-1200-b6a8eda5.webp"
+        "src": "/media/tapete-1200-97d18a64.webp"
       },
       {
         "width": 1600,
-        "src": "/media/tapete-1600-b6a8eda5.webp"
+        "src": "/media/tapete-1600-97d18a64.webp"
+      }
+    ]
+  },
+  "hero-poster": {
+    "width": 720,
+    "height": 1272,
+    "avif": [
+      {
+        "width": 360,
+        "src": "/media/hero-poster-360-e58277b8.avif"
+      },
+      {
+        "width": 540,
+        "src": "/media/hero-poster-540-e58277b8.avif"
+      },
+      {
+        "width": 720,
+        "src": "/media/hero-poster-720-e58277b8.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 360,
+        "src": "/media/hero-poster-360-e58277b8.webp"
+      },
+      {
+        "width": 540,
+        "src": "/media/hero-poster-540-e58277b8.webp"
+      },
+      {
+        "width": 720,
+        "src": "/media/hero-poster-720-e58277b8.webp"
       }
     ]
   },

@@ -6,12 +6,6 @@ export const about = {
     "Plaza Home oprema stanove, kuće, luksuzne vile, hotele i restorane. Radimo zavjese, draperije i različite sisteme za zaštitu od sunca.",
     "Svaki posao radimo od početka do kraja: dođemo, izmjerimo, sašijemo i montiramo.",
   ],
-  /** Kratke činjenice u brojkama (početna i „O nama”). */
-  stats: [
-    { value: "30 godina", label: "iskustva u opremanju prostora" },
-    { value: "do 6 m", label: "visine zavjesa koje šijemo" },
-    { value: "Crna Gora", label: "dolazimo na adresu i mjerimo, širom zemlje" },
-  ],
   /** Koraci rada, iz objave klijenta za Luštica Bay. */
   steps: [
     {

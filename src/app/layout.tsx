@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import localFont from "next/font/local";
-import { ContactBar } from "@/components/contact-bar";
+import { QuickContact } from "@/components/quick-contact";
 import { RevealObserver } from "@/components/reveal-observer";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -52,7 +52,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         <SiteHeader />
         {children}
         <SiteFooter />
-        <ContactBar />
+        <QuickContact />
         <RevealObserver />
       </body>
     </html>

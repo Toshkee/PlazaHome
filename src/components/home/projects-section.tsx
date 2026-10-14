@@ -22,7 +22,7 @@ export function ProjectsSection() {
           link={{ href: "/radovi", label: "Svi radovi" }}
         />
 
-        <ul className="snap-row mt-10 lg:mx-0 lg:mt-16 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-8 lg:gap-y-10 lg:overflow-visible lg:px-0">
+        <ul className="snap-row mt-10 lg:mx-0 lg:mt-20 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-8 lg:gap-y-10 lg:overflow-visible lg:px-0">
           {featured.map((project, i) => {
             const big = i === 0;
             return (

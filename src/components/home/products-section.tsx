@@ -21,7 +21,7 @@ export function ProductsSection() {
           link={{ href: "/proizvodi", label: "Svi proizvodi" }}
         />
 
-        <ul className="mt-10 grid grid-cols-2 gap-x-3 gap-y-8 sm:gap-x-5 lg:mt-16 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-14">
+        <ul className="mt-10 grid grid-cols-2 gap-x-3 gap-y-8 sm:gap-x-5 lg:mt-20 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16">
           {withImage.map((product, i) => (
             <li key={product.slug}>
               <Link href={`/proizvodi#${product.slug}`} className="group zoom-on-hover block">
@@ -53,10 +53,7 @@ export function ProductsSection() {
         </ul>
 
         {extra && (
-          <p className="mt-10 flex gap-3 border-t border-ink/15 pt-6 text-muted lg:mt-16">
-            <Icon name="check" className="mt-1 size-4 shrink-0 text-petrol" />
-            {extra.text}
-          </p>
+          <p className="mt-10 border-t border-ink/15 pt-6 text-muted lg:mt-20">{extra.text}</p>
         )}
         <MoreLink href="/proizvodi" label="Svi proizvodi" className="mt-3" />
       </div>

@@ -34,10 +34,10 @@ export default function ContactPage() {
       />
 
       <section aria-label="Načini kontakta" className="container-page py-section">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-x-12">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-x-12">
           <div className="lg:col-span-5">
             <h2 className="text-xl font-medium tracking-[-0.012em]">Javite nam se direktno</h2>
-            <ul className="mt-5 grid gap-3">
+            <ul className="mt-5 grid grid-cols-1 gap-3">
               {channels.map((channel, i) => (
                 <li key={channel.label} data-reveal style={vars({ "--delay": `${i * 0.05}s` })}>
                   <a
@@ -49,7 +49,7 @@ export default function ContactPage() {
                     </span>
                     <span className="flex min-w-0 flex-1 flex-col">
                       <span className="text-sm text-muted">{channel.label}</span>
-                      <span className="truncate font-semibold">{channel.value}</span>
+                      <span className="font-semibold wrap-anywhere">{channel.value}</span>
                     </span>
                     <Icon name="arrowUpRight" className="size-5 text-muted transition-colors group-hover:text-petrol" />
                   </a>

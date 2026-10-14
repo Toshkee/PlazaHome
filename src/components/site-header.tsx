@@ -1,7 +1,6 @@
 import Link from "next/link";
-import { contactLinks, site } from "@/content/site";
+import { site } from "@/content/site";
 import { HeaderShell } from "./header-shell";
-import { Icon } from "./icon";
 import { MobileMenu } from "./mobile-menu";
 import { NavLinks } from "./nav-links";
 import { Picture } from "./picture";
@@ -41,18 +40,9 @@ export function SiteHeader() {
           <NavLinks />
         </nav>
 
-        <div className="hidden items-center gap-6 lg:flex">
-          <a href={contactLinks.tel} className="hidden min-h-11 items-center gap-2 text-sm font-semibold xl:inline-flex">
-            <Icon name="phone" className="size-4 text-petrol group-data-overlay:text-gold-light" />
-            {site.phone.display}
-          </a>
-          <Link
-            href="/kontakt"
-            className="btn btn-primary min-h-11 text-sm group-data-overlay:bg-white group-data-overlay:text-petrol group-data-overlay:hover:bg-sand"
-          >
-            Zatražite ponudu
-          </Link>
-        </div>
+        <Link href="/kontakt" className="btn btn-outline hidden min-h-11 text-petrol group-data-overlay:text-white lg:inline-flex">
+          Konsultacija
+        </Link>
 
         <MobileMenu logo={<MenuLogo />} />
       </div>

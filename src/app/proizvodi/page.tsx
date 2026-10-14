@@ -46,7 +46,7 @@ export default function ProductsPage() {
       </nav>
 
       <div className="container-page py-section">
-        <div className="grid gap-y-16 lg:gap-y-20">
+        <div className="grid gap-y-16 lg:gap-y-32">
           {withImage.map((product, i) => {
             const flip = i % 2 === 1;
             return (
@@ -101,8 +101,8 @@ export default function ProductsPage() {
             </h2>
             <div className="lg:col-span-5 lg:col-start-8">
               <p className="text-muted lg:text-lg">{product.text}</p>
-              <a href={contactLinks.whatsapp} className="btn btn-primary mt-6 w-full sm:w-auto">
-                <Icon name="whatsapp" />
+              <a href={contactLinks.whatsapp} className="btn btn-outline mt-6 text-petrol">
+                <Icon name="whatsapp" className="size-4" />
                 Pitajte za vaš prostor
               </a>
             </div>

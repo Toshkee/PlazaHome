@@ -9,13 +9,13 @@ export default function NotFound() {
         <p className="eyebrow text-petrol">Greška 404</p>
         <h1 className="mt-3 text-3xl">Ova stranica ne postoji</h1>
         <p className="mt-4 max-w-md text-lg text-muted">Možda je adresa pogrešno upisana. Vratite se na početnu ili nam se javite.</p>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Link href="/" className="btn btn-primary">
+        <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3">
+          <Link href="/" className="btn btn-outline text-petrol">
             Na početnu
-            <Icon name="arrowRight" />
           </Link>
-          <Link href="/kontakt" className="btn btn-outline">
+          <Link href="/kontakt" className="link-arrow">
             Kontakt
+            <Icon name="arrowRight" className="size-4" />
           </Link>
         </div>
       </section>

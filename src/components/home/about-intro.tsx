@@ -3,9 +3,8 @@ import { about } from "@/content/about";
 import { vars } from "@/lib/style";
 import { Icon } from "../icon";
 import { Picture } from "../picture";
-import { Stats } from "../stats";
 
-/** Ko smo: naslov i tekst lijevo, dvije fotografije preklopljene desno, pa brojke. */
+/** Ko smo: naslov i tekst lijevo, dvije fotografije preklopljene desno. */
 export function AboutIntro() {
   return (
     <section aria-labelledby="o-nama-title" className="py-section">
@@ -39,10 +38,6 @@ export function AboutIntro() {
             <Picture name="tapete" alt="" sizes="(min-width: 64rem) 16rem, 44vw" className="size-full object-cover" />
           </div>
         </div>
-      </div>
-
-      <div className="container-page">
-        <Stats className="mt-16 lg:mt-28" />
       </div>
     </section>
   );

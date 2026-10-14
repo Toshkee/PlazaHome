@@ -1,9 +1,11 @@
 import Link from "next/link";
-import { contactLinks } from "@/content/site";
-import { Icon } from "./icon";
+import { contactLinks, site } from "@/content/site";
 import { Picture } from "./picture";
 
-/** Završni poziv na dnu stranica, preko fotografije u boji brenda. */
+const quietLink =
+  "inline-flex min-h-11 items-center text-white underline decoration-white/35 underline-offset-[0.35em] transition-colors hover:decoration-white";
+
+/** Završni poziv na dnu stranica, preko fotografije u boji brenda: jedno dugme, a direktni kontakt tiho ispod. */
 export function Cta() {
   return (
     <section aria-labelledby="cta-title" className="on-dark relative overflow-clip bg-petrol text-white">
@@ -18,23 +20,23 @@ export function Cta() {
             Dogovorimo dolazak i mjerenje
           </h2>
           <p className="mt-6 max-w-xl text-white/85 lg:text-lg">
-            Pozovite, pišite na WhatsApp ili Viber, ili pošaljite upit preko forme. Dolazimo na adresu i mjerimo svaki
-            prozor.
+            Dolazimo na adresu, mjerimo svaki prozor i pomažemo oko izbora tkanine.
           </p>
         </div>
-        <div className="grid gap-3 sm:flex sm:flex-wrap xl:col-span-5 xl:justify-end" data-reveal>
-          <a href={contactLinks.whatsapp} className="btn btn-light">
-            <Icon name="whatsapp" />
-            Pišite na WhatsApp
-          </a>
-          <a href={contactLinks.tel} className="btn btn-outline">
-            <Icon name="phone" />
-            Pozovite
-          </a>
+        <div className="flex flex-col items-start gap-4 xl:col-span-5 xl:items-end" data-reveal>
           <Link href="/kontakt" className="btn btn-outline">
-            Pošaljite upit
-            <Icon name="arrowRight" />
+            Zakažite konsultaciju
           </Link>
+          <p className="flex flex-wrap items-center gap-x-3 text-sm text-white/90">
+            ili direktno:
+            <a href={contactLinks.whatsapp} className={quietLink}>
+              WhatsApp
+            </a>
+            <span aria-hidden="true">·</span>
+            <a href={contactLinks.tel} className={quietLink}>
+              {site.phone.display}
+            </a>
+          </p>
         </div>
       </div>
     </section>

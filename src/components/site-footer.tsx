@@ -18,7 +18,7 @@ export function SiteFooter() {
         </div>
 
         <nav aria-labelledby="footer-stranice" className="col-span-2 sm:col-span-1 lg:col-span-2 lg:col-start-5">
-          <h2 id="footer-stranice" className="text-sm font-semibold text-white">
+          <h2 id="footer-stranice" className="caps text-white">
             Stranice
           </h2>
           <ul className="mt-3 grid grid-cols-2 gap-x-6 sm:grid-cols-1">
@@ -38,7 +38,7 @@ export function SiteFooter() {
         </nav>
 
         <nav aria-labelledby="footer-proizvodi" className="hidden sm:block lg:col-span-3">
-          <h2 id="footer-proizvodi" className="text-sm font-semibold text-white">
+          <h2 id="footer-proizvodi" className="caps text-white">
             Proizvodi
           </h2>
           <ul className="mt-3">
@@ -53,7 +53,7 @@ export function SiteFooter() {
         </nav>
 
         <div className="col-span-2 lg:col-span-3">
-          <h2 className="text-sm font-semibold text-white">Kontakt</h2>
+          <h2 className="caps text-white">Kontakt</h2>
           <ul className="mt-3">
             <li>
               <a href={contactLinks.tel} className={linkClass}>

@@ -20,8 +20,9 @@ npm run typecheck
 
 Šta se dešava u `npm run build`:
 
-1. `prebuild` → `scripts/media.mjs`: AVIF i WebP slike u više širina u `public/media/`,
-   ikonice, `public/og.jpg` i `src/content/media.generated.ts`. Već urađene slike preskače.
+1. `prebuild` → `scripts/media.mjs`: AVIF i WebP slike u više širina u `public/media/`
+   (fotografije sa zajedničkim tonom, `GRADE`), ikonice, `public/og.jpg` i
+   `src/content/media.generated.ts`. Već urađene slike preskače.
 2. `next build` → statički sajt u `out/`.
 3. `postbuild` → `scripts/csp.mjs`: računa SHA-256 inline skripti iz HTML-a i dopisuje ih
    u `script-src` u `out/_headers` (CSP bez `unsafe-inline` za skripte).
@@ -90,7 +91,7 @@ Sav tekst i podaci su u `src/content/`. Jedna izmjena po vrsti sadržaja:
 |---|---|
 | Telefon, email, Instagram, WhatsApp poruka, adresa, domen, opis za Google | `src/content/site.ts` |
 | Početna: naslov, tekst, video, rečenica ispod videa | `src/content/home.ts` |
-| O nama: naslov, tekst, brojke, koraci rada, činjenice | `src/content/about.ts` |
+| O nama: naslov, tekst, koraci rada, činjenice | `src/content/about.ts` |
 | Radovi (projekti, fotografije, linkovi na Instagram objave) | `src/content/projects.ts` |
 | Klijenti: vrste klijenata, mjesta | `src/content/clients.ts` |
 | Proizvodi (naziv, opis, slika) | `src/content/products.ts` |
@@ -116,14 +117,14 @@ Sa `prefers-reduced-motion` sve to stoji: sadržaj je odmah vidljiv, video ne kr
 ### Nova ili zamijenjena fotografija
 
 1. Original staviti u `assets/source/` (npr. `assets/source/instagram/nova.jpg`).
-2. Dodati red u `IMAGES` u `scripts/media.mjs` (`name`, `src`, po potrebi `crop`).
+2. Dodati red u `PHOTOS` u `scripts/media.mjs` (`name`, `src`, po potrebi `crop`). Fotografija dobija zajednički ton sama.
 3. `npm run media` (ili samo `npm run build`).
 4. Upotrijebiti `name` u `projects.ts`, `products.ts` ili `clients.ts`; TypeScript javlja ako ime ne postoji.
 
 ### Novi hero video
 
 Zamijeniti `assets/source/instagram/hero-video.mp4` i pokrenuti `npm run video`
-(pravi `public/video/hero-720.mp4` i poster), pa `npm run build`. Isti snimak se prikazuje i kod vile na stranici Radovi.
+(pravi `public/video/hero-720.mp4` sa istim tonom kao fotografije i poster), pa `npm run build`. Isti snimak se prikazuje i kod vile na stranici Radovi.
 
 ### Adresa i mapa
 

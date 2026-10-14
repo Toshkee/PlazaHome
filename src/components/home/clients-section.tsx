@@ -11,7 +11,7 @@ export function ClientsSection() {
       <div className="container-page">
         <Testimonial />
 
-        <div className="mt-20 grid gap-10 border-t border-line pt-14 lg:mt-28 lg:grid-cols-12 lg:gap-x-12 lg:pt-20">
+        <div className="mt-20 grid gap-10 border-t border-line pt-14 lg:mt-36 lg:grid-cols-12 lg:gap-x-12 lg:pt-28">
           <div className="lg:col-span-5" data-reveal>
             <p className="eyebrow text-petrol">Klijenti</p>
             <h2 id="klijenti-title" className="mt-5 text-2xl lg:mt-7">
@@ -31,12 +31,11 @@ export function ClientsSection() {
             {clients.kinds.map((kind, i) => (
               <li
                 key={kind}
-                className="flex items-center justify-between gap-3 border-b border-line py-4 sm:text-lg lg:py-5"
+                className="border-b border-line py-4 sm:text-lg lg:py-5"
                 data-reveal
                 style={vars({ "--delay": `${(i % 2) * 0.06}s` })}
               >
                 {kind}
-                <Icon name="check" className="size-4 text-petrol" />
               </li>
             ))}
           </ul>

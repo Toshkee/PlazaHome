@@ -17,11 +17,17 @@ const LOGO_CROP = { left: 37, top: 192, width: 406, height: 156 };
 /** Boje znaka: zlatna za tamne površine, petrolej (boja podloge logotipa) za svijetle. */
 const LOGO_COLORS = { gold: [196, 178, 136], petrol: [38, 84, 108] };
 /**
- * Svaka slika: ime (koristi se u kodu), izvor, opciono isijecanje i širine.
- * Isijecanje je u pikselima izvornog fajla.
+ * Zajednički ton fotografija: malo toplije (crvena gore, plava dolje, sjene blago podignute)
+ * i malo manje zasićeno. Fotografije su sa različitih telefona; ovako djeluju kao jedna serija.
+ * `a * piksel + b` po kanalu (R, G, B), pa zasićenost. Hero snimak dobija isti smjer u scripts/video.sh.
  */
-const IMAGES = [
-  { name: "hero-poster", src: "assets/source/generated/hero-poster.jpg", widths: [360, 540, 720] },
+const GRADE = { a: [1.03, 1, 0.95], b: [5, 3, 0], saturation: 0.87 };
+
+/**
+ * Fotografije: ime (koristi se u kodu), izvor, opciono isijecanje i širine.
+ * Isijecanje je u pikselima izvornog fajla. Sve dobijaju zajednički ton (GRADE).
+ */
+const PHOTOS = [
   { name: "vila-salon", src: `${IG}/vila-visoki-prozori-1.jpg` },
   { name: "vila-salon-sumrak", src: `${IG}/vila-visoki-prozori-2.jpg` },
   // Original ima utisnut tekst na zavjesi; isijecamo donji dio bez teksta.
@@ -39,6 +45,11 @@ const IMAGES = [
   { name: "drveni-venecijaneri", src: `${IG}/drveni-venecijaneri.jpg` },
   { name: "rolo-zavjese", src: `${IG}/rolo-zavjese.jpg` },
   { name: "tapete", src: `${IG}/tapete.jpg` },
+];
+
+/** Bez obrade tona: hero poster (ton dobija u video.sh, zajedno sa snimkom) i logo. */
+const OTHER = [
+  { name: "hero-poster", src: "assets/source/generated/hero-poster.jpg", widths: [360, 540, 720] },
   // Logo sa Instagram profila, isječen na sam znak (bez praznog polja oko njega).
   {
     name: "logo",
@@ -51,6 +62,8 @@ const IMAGES = [
   { name: "logo-mark-petrol", src: "assets/source/generated/logo-mark-petrol.png", widths: [240, 400, 600, 812] },
 ];
 
+const IMAGES = [...PHOTOS.map((photo) => ({ ...photo, grade: GRADE })), ...OTHER];
+
 
 const FORMATS = {
   avif: (img) => img.avif({ quality: 55, effort: 4 }),
@@ -62,9 +75,14 @@ async function fileHash(file, extra) {
   return createHash("sha1").update(buf).update(JSON.stringify(extra)).digest("hex").slice(0, 8);
 }
 
+function graded(img, grade) {
+  return img.linear(grade.a, grade.b).modulate({ saturation: grade.saturation });
+}
+
 function base(image) {
-  const img = sharp(path.join(ROOT, image.src)).rotate();
-  return image.crop ? img.extract(image.crop) : img;
+  let img = sharp(path.join(ROOT, image.src)).rotate();
+  if (image.crop) img = img.extract(image.crop);
+  return image.grade ? graded(img, image.grade) : img;
 }
 
 async function buildImage(image, existing) {
@@ -73,7 +91,7 @@ async function buildImage(image, existing) {
   const height = image.crop?.height ?? meta.height;
   const requested = image.widths ?? DEFAULT_WIDTHS;
   const widths = [...new Set(requested.map((w) => Math.min(w, width)))].sort((a, b) => a - b);
-  const hash = await fileHash(path.join(ROOT, image.src), { crop: image.crop, widths, v: 1 });
+  const hash = await fileHash(path.join(ROOT, image.src), { crop: image.crop, widths, grade: image.grade, v: 1 });
 
   const sources = {};
   let made = 0;
@@ -143,7 +161,7 @@ async function buildIcons() {
 }
 
 async function buildOgImage() {
-  const photo = await sharp(path.join(ROOT, `${IG}/vila-visoki-prozori-1.jpg`))
+  const photo = await graded(sharp(path.join(ROOT, `${IG}/vila-visoki-prozori-1.jpg`)), GRADE)
     .resize(1200, 630, { fit: "cover", position: "centre" })
     .toBuffer();
   const logo = await sharp(path.join(ROOT, `${IG}/logo-instagram.jpg`)).resize(200, 200).toBuffer();
