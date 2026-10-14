@@ -17,12 +17,12 @@ export function NavLinks() {
             <Link
               href={item.href}
               aria-current={current ? "page" : undefined}
-              className="relative inline-flex min-h-11 items-center text-[0.9375rem] font-medium text-ink/75 transition-colors hover:text-ink aria-[current=page]:text-ink"
+              className="relative inline-flex min-h-11 items-center text-[0.9375rem] font-medium text-ink/75 transition-colors hover:text-ink aria-[current=page]:text-ink group-data-overlay:text-white/85 group-data-overlay:hover:text-white group-data-overlay:aria-[current=page]:text-white"
             >
               {item.label}
               <span
                 aria-hidden="true"
-                className={`absolute inset-x-0 bottom-1.5 h-0.5 bg-petrol transition-transform duration-300 ${current ? "scale-x-100" : "scale-x-0"}`}
+                className={`absolute inset-x-0 bottom-1.5 h-px bg-petrol transition-transform duration-300 group-data-overlay:bg-gold-light ${current ? "scale-x-100" : "scale-x-0"}`}
               />
             </Link>
           </li>

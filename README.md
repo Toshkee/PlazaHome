@@ -105,15 +105,13 @@ Sve su CSS, uz nekoliko malih klijentskih komponenti; ništa nije iz biblioteke.
 
 | Šta | Gdje |
 |---|---|
-| Zavjesa pri prvom učitavanju | `components/intro-curtain.tsx` + `.intro` u `globals.css` |
-| Prelaz između stranica (nova se otvara od sredine) | `components/page-shell.tsx` (React `ViewTransition`) + `::view-transition-*` |
-| Naslovi koji izlaze red po red | `components/lines.tsx` + `enter-lines` / `data-reveal="lines"` |
-| Pojava na skrol (`data-reveal="up"`, `"curtain"`, `"fade"`…) | `components/reveal-observer.tsx` |
-| Riječi koje se pale na skrol, trake teksta | `components/statement.tsx`, `components/marquee.tsx`, `components/scroll-progress.tsx` |
-| Red radova koji se na desktopu pomjera bočno | `components/pinned-rail.tsx` |
-| Paralaksa slika, zum hero snimka | `.parallax`, `.hero-media` (scroll-driven CSS; gdje nije podržano, slike stoje) |
+| Tekst na vrhu stranice izlazi redom, kadar se „smiri” | `enter-up`, `enter-settle` u `globals.css` (kašnjenje u `--delay`) |
+| Pojava na skrol: tekst odozdo (`data-reveal`), fotografija iz bližeg kadra (`data-reveal="image"`) | `components/reveal-observer.tsx` + `[data-reveal]` u `globals.css` |
+| Sporo uvećanje fotografije na hover | `zoom-on-hover` u `globals.css` |
+| Paralaksa velikog kadra i poziva na dnu | `.parallax` (scroll-driven CSS; gdje nije podržano, slika stoji) |
+| Zaglavlje providno preko kadra, svijetlo poslije skrola | `components/header-shell.tsx` (`data-overlay`, `data-solid`), stranice u `heroPages` (`src/content/navigation.ts`) |
 
-Sa `prefers-reduced-motion` sve to stoji: nema uvoda, sadržaj je odmah vidljiv, video ne kreće sam.
+Sa `prefers-reduced-motion` sve to stoji: sadržaj je odmah vidljiv, video ne kreće sam.
 
 ### Nova ili zamijenjena fotografija
 
@@ -143,10 +141,9 @@ src/app/           layout, stranice (/, o-nama, radovi, klijenti, proizvodi, kon
 src/components/    sekcije i animacije; home/ su sekcije početne. "use client" samo gdje treba
                    (meni, zaglavlje, video, pojava na skrol, red radova, pregled fotografija, forma)
 src/content/       sav sadržaj
-src/fonts/         Instrument Sans i Instrument Serif svedeni na znakove koje sajt koristi
+src/fonts/         Albert Sans sveden na znakove koje sajt koristi
 ```
 
-Fontovi: Instrument Sans (tekst) i Instrument Serif (naslovi), SIL Open Font License
-(`assets/source/fonts/OFL.txt`, `assets/source/fonts/OFL-InstrumentSerif.txt`).
-Logo bez podloge (`logo-mark`) pravi `scripts/media.mjs` iz logotipa sa Instagrama.
+Font: Albert Sans (tekst i naslovi), SIL Open Font License (`assets/source/fonts/OFL.txt`).
+Znak bez podloge, zlatni (`logo-mark`) i petrolej (`logo-mark-petrol`), pravi `scripts/media.mjs` iz logotipa sa Instagrama.
 Ikone: Tabler Icons (MIT); Viber ikona je nacrtana u istom stilu.

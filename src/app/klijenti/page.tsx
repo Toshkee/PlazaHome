@@ -3,7 +3,7 @@ import { Icon } from "@/components/icon";
 import { PageHero } from "@/components/page-hero";
 import { PageShell } from "@/components/page-shell";
 import { Picture } from "@/components/picture";
-import { TestimonialCard } from "@/components/testimonial-card";
+import { Testimonial } from "@/components/testimonial";
 import { clients } from "@/content/clients";
 import { pageMetadata } from "@/lib/metadata";
 import { vars } from "@/lib/style";
@@ -18,32 +18,38 @@ export const metadata = pageMetadata({
 export default function ClientsPage() {
   return (
     <PageShell>
-      <PageHero label="Klijenti" title={clients.title} lead={clients.lead}>
-        <ul className="mt-6 flex flex-wrap gap-2" aria-label="Gdje smo radili">
-          {clients.places.map((place) => (
-            <li key={place} className="inline-flex items-center gap-2 border border-line bg-white px-3 py-2 text-sm font-medium">
-              <Icon name="mapPin" className="size-4 text-petrol" />
-              {place}
-            </li>
-          ))}
-        </ul>
+      <PageHero
+        label="Klijenti"
+        title={clients.title}
+        lead={clients.lead}
+        image={{ name: "restoran-lucni-prozori", alt: "Restoran sa tamnoplavim draperijama na lučnim prozorima" }}
+      >
+        <p className="enter-up mt-5 flex gap-2.5 text-sm text-white/85" style={vars({ "--delay": "0.45s" })}>
+          <Icon name="mapPin" className="mt-0.5 size-4 text-gold-light" />
+          <span>
+            <span className="sr-only">Gdje smo radili: </span>
+            {clients.places.join(", ")}
+          </span>
+        </p>
       </PageHero>
 
       {/* Vrste klijenata: na desktopu dvije veće kartice, pa tri manje. */}
       <section aria-labelledby="vrste-title" className="py-section">
         <div className="container-page">
-          <h2 id="vrste-title" className="text-2xl" data-reveal>
-            Za koga radimo
-          </h2>
-          <ul className="mt-8 grid gap-x-5 gap-y-10 sm:grid-cols-2 lg:mt-12 lg:grid-cols-6 lg:gap-x-8 lg:gap-y-14">
+          <div data-reveal>
+            <p className="eyebrow text-petrol">Vrste klijenata</p>
+            <h2 id="vrste-title" className="mt-5 text-2xl lg:mt-7">
+              Za koga radimo
+            </h2>
+          </div>
+          <ul className="mt-10 grid gap-x-5 gap-y-12 sm:grid-cols-2 lg:mt-16 lg:grid-cols-6 lg:gap-x-8 lg:gap-y-16">
             {clients.segments.map((segment, i) => (
               <li
                 key={segment.name}
                 className={i < 2 ? "lg:col-span-3" : "lg:col-span-2"}
-                data-reveal
-                style={vars({ "--delay": `${(i < 2 ? i : i - 2) * 0.06}s` })}
+                style={vars({ "--delay": `${(i < 2 ? i : i - 2) * 0.1}s` })}
               >
-                <div className={`overflow-clip bg-sand ${i < 2 ? "aspect-4/3" : "aspect-4/3 lg:aspect-4/5"}`}>
+                <div className={`overflow-clip bg-sand ${i < 2 ? "aspect-4/3" : "aspect-4/3 lg:aspect-4/5"}`} data-reveal="image">
                   <Picture
                     name={segment.image.name}
                     alt={segment.image.alt}
@@ -60,14 +66,11 @@ export default function ClientsPage() {
       </section>
 
       <section aria-labelledby="utisak-title" className="bg-sand py-section">
-        <div className="container-page grid gap-8 lg:grid-cols-12 lg:items-start lg:gap-x-12">
-          <div className="lg:col-span-4" data-reveal>
-            <p className="eyebrow text-petrol">Utisak klijenta</p>
-            <h2 id="utisak-title" className="mt-3 text-2xl">
-              Šta kažu o nama
-            </h2>
-          </div>
-          <TestimonialCard className="bg-white lg:col-span-8" />
+        <div className="container-page">
+          <h2 id="utisak-title" className="sr-only">
+            Utisak klijenta
+          </h2>
+          <Testimonial />
         </div>
       </section>
 

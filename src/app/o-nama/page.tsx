@@ -15,7 +15,7 @@ export const metadata = pageMetadata({
 });
 
 const photos = [
-  { name: "vila-salon", alt: "Salon vile sa prozorima u dvije visine i draperijama, u zalazak sunca" },
+  { name: "drvena-kuca", alt: "Drvena kuća sa svijetlim zavjesama i draperijama na staklenim vratima" },
   { name: "restoran-lucni-prozori", alt: "Restoran sa tamnoplavim draperijama na lučnim prozorima" },
 ] as const;
 
@@ -26,7 +26,7 @@ export default function AboutPage() {
         label="O nama"
         title={about.title}
         lead={about.paragraphs[0]}
-        image={{ name: "vila-salon-sumrak", alt: "Salon vile sa zaobljenom sofom i visokim draperijama u sumrak" }}
+        image={{ name: "vila-salon", alt: "Salon vile sa prozorima u dvije visine, zaobljenom sofom i draperijama, u zalazak sunca" }}
       />
 
       {/* Ko smo: rečenica o radu i činjenice. */}
@@ -34,7 +34,7 @@ export default function AboutPage() {
         <div className="container-page grid gap-10 lg:grid-cols-12 lg:gap-x-12">
           <div className="lg:col-span-6" data-reveal>
             <p className="eyebrow text-petrol">Ko smo</p>
-            <h2 id="ko-smo-title" className="mt-3 max-w-xl text-2xl">
+            <h2 id="ko-smo-title" className="mt-5 max-w-xl text-2xl lg:mt-7">
               {about.paragraphs[1]}
             </h2>
           </div>
@@ -54,16 +54,16 @@ export default function AboutPage() {
         </div>
 
         {/* Dva prostora, dvije vrste klijenata: vila i restoran. */}
-        <div className="container-page mt-12 grid grid-cols-2 gap-3 sm:gap-5 lg:mt-20 lg:gap-8">
+        <div className="container-page mt-14 grid grid-cols-2 gap-3 sm:gap-5 lg:mt-24 lg:gap-8">
           {photos.map((photo, i) => (
-            <div key={photo.name} className="aspect-3/4 overflow-clip bg-sand lg:aspect-4/5" data-reveal style={vars({ "--delay": `${i * 0.08}s` })}>
+            <div key={photo.name} className="aspect-3/4 overflow-clip bg-sand lg:aspect-4/5" data-reveal="image" style={vars({ "--delay": `${i * 0.12}s` })}>
               <Picture name={photo.name} alt={photo.alt} sizes="(min-width: 80rem) 38rem, 50vw" className="size-full object-cover" />
             </div>
           ))}
         </div>
       </section>
 
-      <ProcessSteps />
+      <ProcessSteps tone="light" />
       <Cta />
     </PageShell>
   );

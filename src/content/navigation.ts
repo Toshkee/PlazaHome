@@ -6,3 +6,6 @@ export const navigation = [
   { href: "/proizvodi", label: "Proizvodi" },
   { href: "/kontakt", label: "Kontakt" },
 ] as const;
+
+/** Stranice čiji vrh je fotografija ili snimak preko cijele širine: zaglavlje je providno preko njega. */
+export const heroPages: readonly string[] = ["/", "/o-nama", "/radovi", "/klijenti", "/proizvodi"];

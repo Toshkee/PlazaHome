@@ -27,13 +27,14 @@ function PhotoButton({ image, sizes, className = "" }: { image: ProjectImage; si
       type="button"
       data-viewer-index={photos.findIndex((photo) => photo.image === image)}
       aria-haspopup="dialog"
-      className={`group relative block w-full cursor-zoom-in overflow-clip bg-sand ${className}`}
+      className={`group zoom-on-hover relative block w-full cursor-zoom-in overflow-clip bg-sand ${className}`}
+      data-reveal="image"
     >
       <Picture
         name={image.name}
         alt={image.alt}
         sizes={sizes}
-        className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+        className="size-full object-cover"
       />
       <span className="sr-only">Uvećaj fotografiju</span>
     </button>
@@ -52,14 +53,16 @@ function InstagramLink({ href, label }: { href: string; label: string }) {
 function ProjectCard({ project }: { project: Project }) {
   const [image] = project.images;
   return (
-    <article id={project.slug} aria-labelledby={`${project.slug}-title`} className="scroll-mt-24" data-reveal>
+    <article id={project.slug} aria-labelledby={`${project.slug}-title`} className="scroll-mt-24">
       <PhotoButton image={image} sizes="(min-width: 80rem) 38rem, (min-width: 40rem) 47vw, 100vw" className="aspect-4/5 lg:aspect-square" />
-      <h2 id={`${project.slug}-title`} className="mt-5 text-xl">
-        {project.title}
-      </h2>
-      <p className="mt-1 text-sm font-semibold text-petrol">{project.work}</p>
-      <p className="mt-2 max-w-md text-muted">{project.text}</p>
-      <InstagramLink href={project.instagramUrl} label="Objava na Instagramu" />
+      <div data-reveal>
+        <h2 id={`${project.slug}-title`} className="mt-6 text-[clamp(1.5rem,1.3rem+0.8vw,2rem)]">
+          {project.title}
+        </h2>
+        <p className="mt-1.5 text-sm font-semibold text-petrol">{project.work}</p>
+        <p className="mt-3 max-w-md text-muted">{project.text}</p>
+        <InstagramLink href={project.instagramUrl} label="Objava na Instagramu" />
+      </div>
     </article>
   );
 }
@@ -79,7 +82,12 @@ export default function WorkPage() {
 
   return (
     <PageShell>
-      <PageHero label="Radovi" title="Naši radovi" lead={projectsIntro} />
+      <PageHero
+        label="Radovi"
+        title="Naši radovi"
+        lead={projectsIntro}
+        image={{ name: "lustica-bay", alt: "Lanena zavjesa pored balkonskih vrata sa pogledom na more, Luštica Bay" }}
+      />
 
       <PhotoViewer
         slides={slides}
@@ -93,7 +101,7 @@ export default function WorkPage() {
           <div className="grid gap-4 lg:grid-cols-12 lg:items-end lg:gap-x-12" data-reveal>
             <div className="lg:col-span-6">
               <p className="eyebrow text-petrol">Izdvojeni projekat</p>
-              <h2 id="vila-title" className="mt-3 text-2xl">
+              <h2 id="vila-title" className="mt-5 text-3xl lg:mt-7">
                 {villa.title}
               </h2>
               <p className="mt-2 font-semibold text-petrol">{villa.work}</p>
@@ -109,20 +117,20 @@ export default function WorkPage() {
 
           <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-5 lg:mt-12 lg:grid-cols-3 lg:gap-8">
             {villa.video && (
-              <div className="relative col-span-2 aspect-4/5 overflow-clip bg-night lg:col-span-1 lg:aspect-3/4" data-reveal>
+              <div className="relative col-span-2 aspect-4/5 overflow-clip bg-night lg:col-span-1 lg:aspect-3/4" data-reveal="image">
                 <LoopVideo src={villa.video.src} start="in-view" buttonClassName="absolute right-4 bottom-4 z-10">
                   <Picture name="hero-poster" alt="" sizes="(min-width: 64rem) 26rem, 100vw" className="absolute inset-0 size-full object-cover" />
                 </LoopVideo>
-                <p className="absolute bottom-4 left-4 z-10 bg-night/70 px-3 py-2 text-xs text-white backdrop-blur-sm">
-                  Snimak:{" "}
-                  <a href={villa.video.credit.url} className="underline underline-offset-2">
-                    {villa.video.credit.name}
-                  </a>
-                </p>
+                <a
+                  href={villa.video.credit.url}
+                  className="absolute bottom-4 left-4 z-10 inline-flex min-h-11 items-center bg-night/70 px-3 text-xs text-white backdrop-blur-sm"
+                >
+                  Snimak:&nbsp;<span className="underline underline-offset-2">{villa.video.credit.name}</span>
+                </a>
               </div>
             )}
             {villa.images.map((image, i) => (
-              <div key={image.name} data-reveal style={vars({ "--delay": `${(i + 1) * 0.08}s` })}>
+              <div key={image.name} style={vars({ "--delay": `${(i + 1) * 0.12}s` })}>
                 <PhotoButton image={image} sizes="(min-width: 64rem) 26rem, 50vw" className="aspect-3/4" />
               </div>
             ))}
@@ -131,7 +139,7 @@ export default function WorkPage() {
 
         {/* Ostali projekti: dvije kolone od tableta naviše. */}
         <section aria-label="Ostali projekti" className="bg-sand py-section">
-          <div className="container-page grid gap-x-5 gap-y-12 sm:grid-cols-2 lg:gap-x-8 lg:gap-y-16">
+          <div className="container-page grid gap-x-5 gap-y-14 sm:grid-cols-2 lg:gap-x-8 lg:gap-y-20">
             {rest.map((project) => (
               <ProjectCard key={project.slug} project={project} />
             ))}

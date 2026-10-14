@@ -11,7 +11,7 @@ import "./globals.css";
 // Albert Sans (OFL), geometrijski kao slova u logotipu; sveden na znakove koje sajt koristi: scripts/font.sh.
 const sans = localFont({
   src: "../fonts/albert-sans-subset.woff2",
-  weight: "400 600",
+  weight: "300 600",
   display: "swap",
   variable: "--font-albert",
 });

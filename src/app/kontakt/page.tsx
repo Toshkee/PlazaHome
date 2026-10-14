@@ -36,7 +36,7 @@ export default function ContactPage() {
       <section aria-label="Načini kontakta" className="container-page py-section">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-x-12">
           <div className="lg:col-span-5">
-            <h2 className="text-xl">Javite nam se direktno</h2>
+            <h2 className="text-xl font-medium tracking-[-0.012em]">Javite nam se direktno</h2>
             <ul className="mt-5 grid gap-3">
               {channels.map((channel, i) => (
                 <li key={channel.label} data-reveal style={vars({ "--delay": `${i * 0.05}s` })}>
@@ -63,7 +63,7 @@ export default function ContactPage() {
 
           <div className="lg:col-span-7" data-reveal>
             <div className="border-t border-line pt-10 sm:border sm:bg-white sm:p-8 lg:p-10">
-              <h2 className="text-xl">Pošaljite upit</h2>
+              <h2 className="text-xl font-medium tracking-[-0.012em]">Pošaljite upit</h2>
               <p className="mt-2 text-muted">Napišite šta vam treba i gdje je prostor; javljamo se telefonom ili emailom.</p>
               <div className="mt-8">
                 <ContactForm />

@@ -8,19 +8,22 @@ type SectionHeadingProps = {
   text?: string;
   /** Link desno od naslova; na telefonu ga sekcija ponavlja ispod sadržaja (`MoreLink`). */
   link?: { href: string; label: string };
+  /** `dark`: na petrolej podlozi. */
+  tone?: "light" | "dark";
   className?: string;
 };
 
 /** Zaglavlje sekcije: oznaka, naslov i kratak tekst; na desktopu link stoji desno, u visini teksta. */
-export function SectionHeading({ id, eyebrow, title, text, link, className = "" }: SectionHeadingProps) {
+export function SectionHeading({ id, eyebrow, title, text, link, tone = "light", className = "" }: SectionHeadingProps) {
+  const dark = tone === "dark";
   return (
     <div className={`flex items-end justify-between gap-12 ${className}`} data-reveal>
       <div className="max-w-2xl">
-        <p className="eyebrow text-petrol">{eyebrow}</p>
-        <h2 id={id} className="mt-3 text-2xl">
+        <p className={`eyebrow ${dark ? "text-gold-light" : "text-petrol"}`}>{eyebrow}</p>
+        <h2 id={id} className="mt-5 text-2xl lg:mt-7">
           {title}
         </h2>
-        {text && <p className="mt-4 max-w-xl text-muted lg:text-lg">{text}</p>}
+        {text && <p className={`mt-5 max-w-xl lg:text-lg ${dark ? "text-white/80" : "text-muted"}`}>{text}</p>}
       </div>
       {link && (
         <Link href={link.href} className="link-arrow hidden shrink-0 lg:inline-flex">

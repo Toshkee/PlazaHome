@@ -10,7 +10,7 @@ export const about = {
   stats: [
     { value: "30 godina", label: "iskustva u opremanju prostora" },
     { value: "do 6 m", label: "visine zavjesa koje šijemo" },
-    { value: "Širom Crne Gore", label: "dolazimo na adresu i mjerimo" },
+    { value: "Crna Gora", label: "dolazimo na adresu i mjerimo, širom zemlje" },
   ],
   /** Koraci rada, iz objave klijenta za Luštica Bay. */
   steps: [

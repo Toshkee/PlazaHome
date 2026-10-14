@@ -1,6 +1,6 @@
 # Handover — Plaza Home (paket Start)
 
-Stanje na dan 2026-10-13. Kod: https://github.com/Toshkee/PlazaHome (grana `main`).
+Stanje na dan 2026-10-14. Kod: https://github.com/Toshkee/PlazaHome (grana `main`).
 
 ## Šta je urađeno
 
@@ -8,8 +8,8 @@ Stanje na dan 2026-10-13. Kod: https://github.com/Toshkee/PlazaHome (grana `main
 
 | Stranica | Šta je na njoj | Pitanje posjetioca |
 |---|---|---|
-| `/` Početna | dron snimak vile preko cijelog ekrana, naslov, WhatsApp i poziv; rečenica o radu i tri brojke; red odabranih radova; proizvodi; klijenti i utisak; poziv na kontakt | Šta je ovo i šta da uradim? |
-| `/o-nama` | priča, činjenice, brojke preko fotografije, „Kako radimo” u 4 koraka | Ko ste i kako radite? |
+| `/` Početna | dron snimak vile preko cijelog ekrana, naslov, WhatsApp i poziv; o nama sa dvije fotografije i tri brojke; proizvodi; veliki kadar vile; tri odabrana projekta; „Kako radimo”; utisak i vrste klijenata; poziv na kontakt | Šta je ovo i šta da uradim? |
+| `/o-nama` | priča, činjenice, dvije fotografije, „Kako radimo” u 4 koraka | Ko ste i kako radite? |
 | `/radovi` | vila (dron snimak i dvije fotografije), još 4 projekta, pregled preko cijelog ekrana, linkovi na Instagram | Kako izgleda vaš rad? |
 | `/klijenti` | mjesta gdje su radili, 5 vrsta klijenata sa fotografijom, utisak Doline Pive | Za koga radite, zašto da vam vjerujem? |
 | `/proizvodi` | 6 proizvoda sa fotografijom + garnišne i šine | Šta nudite? |
@@ -19,22 +19,24 @@ Na telefonu, čim se skroluje ispod vrha, pri dnu je stalno vidljiva traka sa du
 
 ## Odluke i zašto
 
-- **Smjer dizajna (2026-10-13, druga verzija).** Filmski, tamni sajt umjesto prve, „korporativne” verzije:
-  - Tamna osnova (skoro crna sa daškom petroleja), kost bijeli tekst, zlatna iz logotipa za akcente; svijetle sekcije za predah.
-  - Veliki serif naslovi (Instrument Serif, isti autor kao Instrument Sans za tekst), kurziv za jednu riječ u naslovu.
-  - Motiv zavjese u pokretu: uvod se otvara kao zavjesa, nova stranica se otvara od sredine, fotografije se razmiču pri pojavi.
+- **Smjer dizajna (2026-10-14, treća verzija).** Svijetao, miran sajt sa velikim kadrovima, umjesto druge, filmske verzije
+  (klijentu su smetali font, traka teksta i redni brojevi 01/02/03, a sajt nije djelovao dovoljno ozbiljno za firmu):
+  - Svijetla osnova (topla bijela i pijesak), petrolej iz logotipa kao boja brenda, zlatna samo kao detalj (linija uz oznake, znak u podnožju, ikone na petroleju).
+  - Jedan font, Albert Sans: geometrijski kao slova u logotipu. Veliki naslovi su tanki (300), oznake razmaknute kao „HOME” u logotipu.
+  - Svaka stranica počinje kadrom preko cijele širine; zaglavlje je providno preko njega i postaje svijetlo čim se skroluje.
+  - Na početnoj su „momenti” koji razbijaju ritam sekcija: kolaž dvije fotografije, veliki kadar vile sa paralaksom, asimetričan raspored radova, koraci na petroleju, veliki citat.
+  - Pokret je suzdržan: tekst na vrhu izlazi redom, fotografije se pri pojavi „smire” iz bližeg kadra, sporo uvećanje na hover. Nema uvodne zavjese, trake teksta ni prelaza između stranica.
   - Bez biblioteka za animacije: CSS i nekoliko malih komponenti (vidi README, „Animacije”).
-- **Paleta.** Petrolej plava `#26546C` (pozadina logotipa) ostaje boja brenda i akcent na svijetlom; zlatna samo na tamnom. Svi tokeni su u `src/app/globals.css`.
+- **Paleta.** Petrolej plava `#26546C` (pozadina logotipa) je boja brenda. Sav tekst ima kontrast najmanje 4,5:1 (izračunato za svaki par boja; vrijednosti su u komentarima u `src/app/globals.css`).
 - **Hero video** (izbor klijenta: Instagram objava DV3HxtDiJyH):
-  - Preko cijelog ekrana i na telefonu i na desktopu. Snimak je uspravan (720×1280), pa je na širokom ekranu isječen i uvećan; filmsko zrno to ublažava. Oštriji kadar na desktopu traži original snimka u većoj rezoluciji (pitanje za @djurisicmedia).
+  - Preko cijelog ekrana i na telefonu i na desktopu. Snimak je uspravan (720×1272 poslije isijecanja 4 crna reda piksela gore i dolje), pa je na širokom ekranu isječen i uvećan; blago zrno to ublažava. Oštriji kadar na desktopu traži original snimka u većoj rezoluciji (pitanje za @djurisicmedia).
   - Kao LCP prvo se prikaže poster (prvi kadar). Video (3,8 MB, bez zvuka) se učitava tek poslije `load` događaja.
   - Pauzira se kad nije na ekranu. Ima dugme za pauzu (WCAG 2.2.2).
   - Sa `prefers-reduced-motion` ne kreće sam; posjetilac ga pušta dugmetom.
   - Tekst preko videa stoji na podlozi od najmanje 82 % (i iznad prvog reda naslova), pa ima kontrast i kad je kadar iza njega bijel.
-- **Trake teksta (klijenti, mjesta)** kreću se samo dok posjetilac skroluje, ne same od sebe, pa ne treba dugme za pauzu.
 - **Klijenti.** Na sajtu su samo vrste klijenata i mjesta iz briefa i sa Instagrama, i jedan imenovani klijent sa javnim utiskom (Dolina Pive). Imena hotela i restorana i logotipi idu tek uz dozvolu klijenata.
 - **Online zakazivanje** nije dio paketa. Umjesto njega su kontakt dugmad i forma.
-- **Logo** je profilna slika sa Instagrama, isječena na sam znak. Za providno zaglavlje i podnožje `scripts/media.mjs` pravi verziju bez petrolej podloge (isti zlatni znak). Novi logo nije dio paketa.
+- **Logo** je profilna slika sa Instagrama, isječena na sam znak. `scripts/media.mjs` pravi i znak bez podloge u dvije boje: zlatni (providno zaglavlje preko kadra, podnožje) i petrolej (svijetlo zaglavlje). Novi logo nije dio paketa.
 - **Instagram na sajtu.** Nema „žive” Instagram trake: tražila bi skriptu treće strane i token, kvarila bi CSP i brzinu. Galerija je izbor fotografija sa njihovog Instagrama. Svaka vodi na svoju objavu, a uz sekciju je link na profil.
 - **Utisak klijenta** je stvaran: objava @dolinapive (DbGSOR8O98w). Skraćen je jer original pominje i drugog partnera; link vodi na original.
 - **Tekst.** Sav tekst je na crnogorskom. Uređen je iz briefa i iz opisa objava klijenta: usluge iz objave za Luštica Bay, „do 6 m” iz objave sa dron snimkom, tapete iz objave o tapetama. Kratke opise proizvoda sam napisao prema fotografijama i nazivima highlight-a; klijent ih je odobrio. Jedna rečenica je na engleskom, za strane klijente, jer klijent i sam objavljuje na engleskom.
@@ -45,15 +47,16 @@ Na telefonu, čim se skroluje ispod vrha, pri dnu je stalno vidljiva traka sa du
   - Email šalje preko Resend-a. Bez podešenog ključa posjetiocu nudi WhatsApp i email.
 - **CSP bez `unsafe-inline` za skripte.** Next ubacuje inline skripte, pa `scripts/csp.mjs` poslije svakog builda računa njihove SHA-256 hasheve i upisuje ih u `out/_headers`.
 - **Slike.** Iz izvornih fajlova se prave AVIF i WebP u širinama 480–1600 (`scripts/media.mjs`). Prikazuju se kroz `<picture>` sa `sizes`, `width` i `height`. Hero poster ima `fetchpriority="high"`, sve ispod pregiba je `lazy`.
-- **Fontovi.** Svedeni na znakove koje sajt koristi: Instrument Sans 400–500 (18 KB), Instrument Serif regular i kurziv (15 i 16 KB).
+- **Font.** Albert Sans 300–600, sveden na znakove koje sajt koristi (17 KB, jedan fajl).
 - **Nema** analitike, kolačića, CMS-a, baze ni chat widgeta.
 
 ## Definition of Done
 
-> Tabela ispod je mjerena na **prvoj** verziji sajta. Za drugu (filmsku) verziju provjereno je:
-> build, lint i typecheck čisti; 0 grešaka u konzoli na svih šest stranica (390 i 1440 px, produkcijski build kroz wrangler);
-> meni (fokus, Escape), prelaz između stranica, `prefers-reduced-motion` (bez uvoda i animacija, sav sadržaj vidljiv);
-> JavaScript na početnoj 155 KB brotli / 178 KB gzip. Lighthouse, kontrast po elementu i dodirne površine treba ponovo izmjeriti.
+> Tabela ispod je mjerena na **prvoj** verziji sajta. Za treću verziju (2026-10-14) provjereno je:
+> build, lint i typecheck čisti; 0 grešaka i upozorenja u konzoli (i CSP) na svih šest stranica i na 404, na 390, 768 i 1440 px
+> (produkcijski build kroz wrangler); bez horizontalnog skrola; sve dodirne površine na telefonu ≥ 44 px (automatska provjera);
+> kontrast boja izračunat po paru (tekst ≥ 4,5:1); `prefers-reduced-motion`: sav sadržaj vidljiv, video ne kreće sam.
+> Lighthouse i provjera na pravom telefonu **nisu** ponovljeni.
 
 Prva verzija, mjereno na produkcijskom buildu (`npm run build`), lokalno kroz `wrangler pages dev`, 2026-10-13.
 

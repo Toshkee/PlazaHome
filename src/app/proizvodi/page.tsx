@@ -24,23 +24,26 @@ export default function ProductsPage() {
         label="Proizvodi"
         title="Zavjese, draperije i zaštita od sunca"
         lead={productsIntro}
-      >
-        {/* Brzi skok na proizvod; na telefonu štedi skrolovanje. */}
-        <nav aria-label="Proizvodi na ovoj stranici" className="mt-7">
+        image={{ name: "rimske-zavjese", alt: "Niz prozora sa svijetlim rimskim zavjesama u zaobljenoj prostoriji" }}
+      />
+
+      {/* Brzi skok na proizvod; na telefonu štedi skrolovanje. */}
+      <nav aria-label="Proizvodi na ovoj stranici" className="border-b border-line">
+        <div className="container-page py-5 lg:py-6">
           <ul className="flex flex-wrap gap-2">
             {products.map((product) => (
               <li key={product.slug}>
                 <a
                   href={`#${product.slug}`}
-                  className="inline-flex min-h-10 items-center border border-line bg-white px-3.5 text-sm font-medium transition-colors hover:border-petrol hover:text-petrol"
+                  className="inline-flex min-h-11 items-center rounded-full border border-line bg-white px-4 text-sm font-medium transition-colors hover:border-petrol hover:text-petrol"
                 >
                   {product.name}
                 </a>
               </li>
             ))}
           </ul>
-        </nav>
-      </PageHero>
+        </div>
+      </nav>
 
       <div className="container-page py-section">
         <div className="grid gap-y-16 lg:gap-y-20">
@@ -55,7 +58,7 @@ export default function ProductsPage() {
               >
                 <div
                   className={`aspect-4/3 overflow-clip bg-sand lg:col-span-5 lg:aspect-square ${flip ? "lg:col-start-8" : ""}`}
-                  data-reveal
+                  data-reveal="image"
                 >
                   {product.image && (
                     <Picture
