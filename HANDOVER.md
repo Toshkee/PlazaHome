@@ -90,7 +90,7 @@ Prva verzija, mjereno na produkcijskom buildu (`npm run build`), lokalno kroz `w
 | Build, lint, typecheck | čisti |
 | JavaScript na početnoj | 158 KB brotli / 182 KB gzip (preneseno, ispod 200 KB). Nekompresovano 588 KB, uglavnom React i Next runtime. |
 | Lorem, stock, izmišljeni podaci | nema |
-| Kontakt linkovi na pravom telefonu | **nije provjereno** (nemam uređaj). Formati: `tel:+38267380809`, `https://wa.me/38267380809?text=…`, `viber://chat?number=%2B38267380809`. Linka na mapu nema dok ne stigne adresa. |
+| Kontakt linkovi na pravom telefonu | **nije provjereno** (nemam uređaj). Formati (glavni broj od 2026-10-14): `tel:+38267529538`, `https://wa.me/38267529538?text=…`, `viber://chat?number=%2B38267529538`; drugi broj `tel:+38267380809`. Linka na mapu nema dok ne stigne adresa. |
 
 Lighthouse treba ponoviti na produkcijskoj adresi poslije objave (pravi HTTPS i Cloudflare kompresija).
 
@@ -112,7 +112,7 @@ Lighthouse treba ponoviti na produkcijskoj adresi poslije objave (pravi HTTPS i 
    - Ko otvara Resend nalog?
    - Na koju adresu stižu upiti (sad `plazinicmilos333@gmail.com`)?
    - Verifikacija domena treba da prođe prije puštanja forme.
-4. **Viber i WhatsApp:** jesu li oba aktivna na +382 67 380 809?
+4. **Viber i WhatsApp:** jesu li oba aktivna na novom glavnom broju +382 67 529 538? Na njega sada idu poziv, WhatsApp i Viber; stari broj +382 67 380 809 je na stranici Kontakt i u podnožju kao drugi telefon.
 5. **Engleski:** odgovaraju li na WhatsApp i na engleskom (sajt to nagovještava jednom rečenicom)?
 6. **„Terase”:** highlight na Instagramu pominje terase (tende, spoljašnje zavjese?). Ako to rade, treba naziv i fotografija za sekciju Proizvodi.
 7. **Originalni logo:** postoji li vektorski fajl?

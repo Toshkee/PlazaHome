@@ -15,6 +15,7 @@ export const metadata = pageMetadata({
 
 const channels: { icon: IconName; label: string; value: string; href: string }[] = [
   { icon: "phone", label: "Telefon", value: site.phone.display, href: contactLinks.tel },
+  { icon: "phone", label: "Drugi broj", value: site.phoneSecondary.display, href: contactLinks.telSecondary },
   { icon: "whatsapp", label: "WhatsApp", value: site.phone.display, href: contactLinks.whatsapp },
   { icon: "viber", label: "Viber", value: site.phone.display, href: contactLinks.viber },
   { icon: "mail", label: "Email", value: site.email, href: contactLinks.email },

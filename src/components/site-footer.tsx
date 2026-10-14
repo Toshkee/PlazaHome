@@ -61,6 +61,11 @@ export function SiteFooter() {
               </a>
             </li>
             <li>
+              <a href={contactLinks.telSecondary} className={linkClass}>
+                {site.phoneSecondary.display}
+              </a>
+            </li>
+            <li>
               <a href={contactLinks.email} className={`${linkClass} break-all`}>
                 {site.email}
               </a>

@@ -16,8 +16,14 @@ export const site = {
   experience: "30 godina iskustva",
   country: "Crna Gora",
 
+  /** Glavni broj: poziv, WhatsApp i Viber idu na njega. */
   phone: {
     /** Za tel:, wa.me i Viber linkove: samo cifre sa pozivnim brojem. */
+    e164: "+38267529538",
+    display: "+382 67 529 538",
+  },
+  /** Drugi broj (iz briefa); prikazuje se na stranici Kontakt i u podnožju. */
+  phoneSecondary: {
     e164: "+38267380809",
     display: "+382 67 380 809",
   },
@@ -49,6 +55,7 @@ export const site = {
 
 export const contactLinks = {
   tel: `tel:${site.phone.e164}`,
+  telSecondary: `tel:${site.phoneSecondary.e164}`,
   whatsapp: `https://wa.me/${site.phone.e164.replace("+", "")}?text=${encodeURIComponent(site.whatsappMessage)}`,
   viber: `viber://chat?number=${encodeURIComponent(site.phone.e164)}`,
   email: `mailto:${site.email}`,
