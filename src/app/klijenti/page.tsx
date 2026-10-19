@@ -37,8 +37,7 @@ export default function ClientsPage() {
       <section aria-labelledby="vrste-title" className="py-section">
         <div className="container-page">
           <div data-reveal>
-            <p className="eyebrow text-petrol">Vrste klijenata</p>
-            <h2 id="vrste-title" className="mt-5 text-2xl lg:mt-7">
+            <h2 id="vrste-title" className="text-2xl">
               Za koga radimo
             </h2>
           </div>

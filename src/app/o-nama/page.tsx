@@ -33,8 +33,7 @@ export default function AboutPage() {
       <section aria-labelledby="ko-smo-title" className="py-section">
         <div className="container-page grid gap-10 lg:grid-cols-12 lg:gap-x-12">
           <div className="lg:col-span-6" data-reveal>
-            <p className="eyebrow text-petrol">Ko smo</p>
-            <h2 id="ko-smo-title" className="mt-5 max-w-xl text-2xl lg:mt-7">
+            <h2 id="ko-smo-title" className="max-w-xl text-2xl">
               {about.paragraphs[1]}
             </h2>
           </div>

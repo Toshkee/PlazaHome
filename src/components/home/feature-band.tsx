@@ -18,10 +18,10 @@ export function FeatureBand() {
       <div aria-hidden="true" className="band-scrim absolute inset-0" />
       <div className="relative z-10 flex h-full items-end">
         <div className="container-page pb-12 lg:pb-20" data-reveal>
-          <p className="eyebrow text-gold-light">Vila, salon u dvije visine</p>
-          <h2 id="vila-band-title" className="mt-5 max-w-3xl text-3xl lg:mt-7">
+          <h2 id="vila-band-title" className="max-w-3xl text-3xl">
             Zavjese dugačke i do 6 metara, šivene po mjeri
           </h2>
+          <p className="mt-4 text-sm text-white/80 lg:mt-6">Vila · salon u dvije visine · zalazak sunca</p>
           <Link href="/radovi#vila" className="link-arrow mt-6 [--link-color:var(--color-white)] lg:mt-8">
             Pogledajte projekat
             <Icon name="arrowRight" className="size-4" />

@@ -100,8 +100,7 @@ export default function WorkPage() {
         <article id={villa.slug} aria-labelledby="vila-title" className="container-page scroll-mt-24 py-section">
           <div className="grid gap-4 lg:grid-cols-12 lg:items-end lg:gap-x-12" data-reveal>
             <div className="lg:col-span-6">
-              <p className="eyebrow text-petrol">Izdvojeni projekat</p>
-              <h2 id="vila-title" className="mt-5 text-3xl lg:mt-7">
+              <h2 id="vila-title" className="text-3xl">
                 {villa.title}
               </h2>
               <p className="mt-2 font-semibold text-petrol">{villa.work}</p>

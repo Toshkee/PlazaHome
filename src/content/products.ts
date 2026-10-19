@@ -10,7 +10,7 @@ export type Product = {
 };
 
 export const productsIntro =
-  "Sve radimo po mjeri prozora i prostora: od laganih zavjesa do sistema koji štite od sunca.";
+  "Sve što ide na prozor šijemo i montiramo po mjeri. Uz to biramo i postavljamo tapete.";
 
 export const products: Product[] = [
   {

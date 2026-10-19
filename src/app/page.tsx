@@ -7,7 +7,6 @@ import { ProductsSection } from "@/components/home/products-section";
 import { ProjectsSection } from "@/components/home/projects-section";
 import { PageShell } from "@/components/page-shell";
 import { ProcessSteps } from "@/components/process-steps";
-import { about } from "@/content/about";
 import { site } from "@/content/site";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -42,7 +41,7 @@ export default function Home() {
       <ProductsSection />
       <FeatureBand />
       <ProjectsSection />
-      <ProcessSteps text={about.paragraphs[1]} />
+      <ProcessSteps />
       <ClientsSection />
       <Cta />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />

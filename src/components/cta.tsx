@@ -15,12 +15,11 @@ export function Cta() {
 
       <div className="relative container-page grid gap-10 py-[calc(var(--spacing-section)*1.15)] xl:grid-cols-12 xl:items-end xl:gap-x-12">
         <div className="xl:col-span-7" data-reveal>
-          <p className="eyebrow text-gold-light">Kontakt</p>
-          <h2 id="cta-title" className="mt-5 max-w-2xl text-3xl lg:mt-7">
+          <h2 id="cta-title" className="max-w-2xl text-3xl">
             Dogovorimo dolazak i mjerenje
           </h2>
           <p className="mt-6 max-w-xl text-white/85 lg:text-lg">
-            Dolazimo na adresu, mjerimo svaki prozor i pomažemo oko izbora tkanine.
+            Javite nam adresu i šta vam treba, pa se dogovorimo kad da dođemo na mjerenje.
           </p>
         </div>
         <div className="flex flex-col items-start gap-4 xl:col-span-5 xl:items-end" data-reveal>

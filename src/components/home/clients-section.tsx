@@ -13,11 +13,9 @@ export function ClientsSection() {
 
         <div className="mt-20 grid gap-10 border-t border-line pt-14 lg:mt-36 lg:grid-cols-12 lg:gap-x-12 lg:pt-28">
           <div className="lg:col-span-5" data-reveal>
-            <p className="eyebrow text-petrol">Klijenti</p>
-            <h2 id="klijenti-title" className="mt-5 text-2xl lg:mt-7">
-              Za koga radimo
+            <h2 id="klijenti-title" className="text-2xl">
+              Radimo za porodice i za firme
             </h2>
-            <p className="mt-5 max-w-md text-muted lg:text-lg">{clients.lead}</p>
             <p className="mt-5 flex gap-2.5 text-sm text-muted">
               <Icon name="mapPin" className="mt-0.5 size-4 text-petrol" />
               {clients.places.join(", ")}

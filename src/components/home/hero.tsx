@@ -33,10 +33,7 @@ export function Hero() {
 
       <div className="relative z-10 flex h-full flex-col justify-end">
         <div className="container-page pb-10 lg:pb-16">
-          <p className="eyebrow enter-up text-gold-light" style={vars({ "--delay": "0.2s" })}>
-            {hero.label}
-          </p>
-          <h1 id="hero-title" className="enter-up mt-5 max-w-4xl text-4xl lg:mt-7" style={vars({ "--delay": "0.35s" })}>
+          <h1 id="hero-title" className="enter-up max-w-4xl text-4xl" style={vars({ "--delay": "0.25s" })}>
             {hero.title}
           </h1>
           <div className="mt-6 flex flex-col items-start gap-8 lg:mt-10 lg:flex-row lg:items-end lg:justify-between">

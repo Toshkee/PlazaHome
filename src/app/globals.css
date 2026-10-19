@@ -335,6 +335,24 @@
   }
 }
 
+/*
+ * Spisak proizvoda na početnoj: na desktopu sve fotografije stoje jedna preko druge lijevo,
+ * a vidi se ona proizvoda nad kojim je miš ili fokus (bez toga prva). Fotografija ne hvata miš,
+ * pa prelazak preko nje ne mijenja izbor.
+ */
+@media (min-width: 64rem) {
+  .product-list .product-photo {
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.6s var(--ease-out);
+  }
+
+  .product-list li:is(:hover, :focus-within) .product-photo,
+  .product-list:not(:has(li:is(:hover, :focus-within))) li:first-child .product-photo {
+    opacity: 1;
+  }
+}
+
 /* -------------------------------------------------------- Pokret pri učitavanju */
 
 @keyframes enter-up {

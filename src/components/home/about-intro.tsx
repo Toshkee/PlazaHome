@@ -10,8 +10,7 @@ export function AboutIntro() {
     <section aria-labelledby="o-nama-title" className="py-section">
       <div className="container-page grid gap-14 lg:grid-cols-12 lg:items-center lg:gap-x-12">
         <div className="lg:col-span-6" data-reveal>
-          <p className="eyebrow text-petrol">O nama</p>
-          <h2 id="o-nama-title" className="mt-5 max-w-xl text-2xl lg:mt-7">
+          <h2 id="o-nama-title" className="max-w-xl text-2xl">
             {about.title}
           </h2>
           <p className="mt-6 max-w-lg text-muted lg:mt-8 lg:text-lg">{about.paragraphs[0]}</p>

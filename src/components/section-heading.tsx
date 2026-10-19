@@ -3,7 +3,6 @@ import { Icon } from "./icon";
 
 type SectionHeadingProps = {
   id: string;
-  eyebrow: string;
   title: string;
   text?: string;
   /** Link desno od naslova; na telefonu ga sekcija ponavlja ispod sadržaja (`MoreLink`). */
@@ -13,14 +12,16 @@ type SectionHeadingProps = {
   className?: string;
 };
 
-/** Zaglavlje sekcije: oznaka, naslov i kratak tekst; na desktopu link stoji desno, u visini teksta. */
-export function SectionHeading({ id, eyebrow, title, text, link, tone = "light", className = "" }: SectionHeadingProps) {
+/**
+ * Zaglavlje sekcije: naslov i kratak tekst; na desktopu link stoji desno, u visini teksta.
+ * Bez oznake iznad naslova: ista oznaka na svakoj sekciji je ono po čemu sajt djeluje kao šablon.
+ */
+export function SectionHeading({ id, title, text, link, tone = "light", className = "" }: SectionHeadingProps) {
   const dark = tone === "dark";
   return (
     <div className={`flex items-end justify-between gap-12 ${className}`} data-reveal>
       <div className="max-w-2xl">
-        <p className={`eyebrow ${dark ? "text-gold-light" : "text-petrol"}`}>{eyebrow}</p>
-        <h2 id={id} className="mt-5 text-2xl lg:mt-7">
+        <h2 id={id} className="text-2xl">
           {title}
         </h2>
         {text && <p className={`mt-5 max-w-xl lg:text-lg ${dark ? "text-white/80" : "text-muted"}`}>{text}</p>}

@@ -8,7 +8,7 @@ Stanje na dan 2026-10-14. Kod: https://github.com/Toshkee/PlazaHome (grana `main
 
 | Stranica | Šta je na njoj | Pitanje posjetioca |
 |---|---|---|
-| `/` Početna | dron snimak vile preko cijelog ekrana, naslov i poziv na konsultaciju; o nama sa dvije fotografije; proizvodi; veliki kadar vile; tri odabrana projekta; „Kako radimo”; utisak i vrste klijenata; poziv na kontakt | Šta je ovo i šta da uradim? |
+| `/` Početna | dron snimak vile preko cijelog ekrana, naslov i poziv na konsultaciju; o nama sa dvije fotografije; proizvodi kao spisak; veliki kadar vile; tri projekta; „Kako radimo” u prvom licu; utisak i vrste klijenata; poziv na kontakt | Šta je ovo i šta da uradim? |
 | `/o-nama` | priča, činjenice, dvije fotografije, „Kako radimo” u 4 koraka | Ko ste i kako radite? |
 | `/radovi` | vila (dron snimak i dvije fotografije), još 4 projekta, pregled preko cijelog ekrana, linkovi na Instagram | Kako izgleda vaš rad? |
 | `/klijenti` | mjesta gdje su radili, 5 vrsta klijenata sa fotografijom, utisak Doline Pive | Za koga radite, zašto da vam vjerujem? |
@@ -34,6 +34,14 @@ Na telefonu, čim se skroluje ispod vrha, dolje desno je dugme „Kontakt”. Ot
   - Razmak između sekcija na desktopu je 176 px (bio je 112 px); na telefonu je isti.
   - Dugmad, meni, linkovi i naslovi u podnožju su mala verzalna slova, razmaknuta kao „HOME” u logotipu. Dugmad imaju tanak okvir umjesto pune boje. Puna boja je samo na slanju forme i na dugmetu „Kontakt” na telefonu.
   - Fotografije imaju zajednički ton (malo toplije i malo manje zasićeno), pa djeluju kao jedna serija, a ne kao snimci sa različitih telefona. Vrijednosti su u `GRADE` u `scripts/media.mjs`. Hero snimak dobija isti smjer u `scripts/video.sh`, ali samo u sjenama i srednjim tonovima, jer bi isto množenje kanala nebo učinilo tirkiznim. Poster je prvi kadar već obrađenog snimka.
+- **Manje šablona (2026-10-19).** Klijentu je sajt i dalje djelovao generički, „kao da ga je pravio AI”. Uzrok nije bio nedostatak efekata, nego tri obrasca:
+  - **Ista gramatika u svakoj sekciji** (oznaka sa zlatnom linijom, pa naslov, pa siva rečenica, pa link desno). Oznake iznad naslova su uklonjene svuda osim na 404; `SectionHeading` više nema `eyebrow`. U velikom kadru vile oznaka je postala potpis ispod naslova.
+  - **„Kako radimo” kao četiri ikonice u krugovima.** Sad je kratak tekst u prvom licu lijevo, a koraci su miran spisak desno, bez ikonica (`about.process`, `about.steps`).
+  - **Tekst bez ičega specifičnog.** Naslovi i uvodi su prepisani tako da kažu nešto konkretno, bez nabrajanja u tri ili četiri stavke i obrasca „od X do Y”. Koristi se samo ono što stoji u briefu i objavama; ništa nije izmišljeno (vidi pitanje 10).
+  - Proizvodi na početnoj su spisak umjesto mreže od šest kartica: na desktopu je lijevo jedna fotografija, ona proizvoda nad kojim je miš ili fokus (samo CSS, `product-list` u `globals.css`); na telefonu svaki red ima malu fotografiju.
+  - Projekti imaju potpis kao u časopisu (prostor · šta smo radili), bez strelica na karticama.
+  - Podnožje: kontakt velikim tankim slovima i stranice u jednom redu; kolona sa proizvodima je izbačena jer ponavlja meni.
+  - Najveći korak dalje nije dizajn nego materijal: fotografije radionice, ruku i tkanina izbliza, oštriji hero snimak i email na domenu.
 - **Paleta.** Petrolej plava `#26546C` (pozadina logotipa) je boja brenda. Sav tekst ima kontrast najmanje 4,5:1 (izračunato za svaki par boja; vrijednosti su u komentarima u `src/app/globals.css`).
 - **Hero video** (izbor klijenta: Instagram objava DV3HxtDiJyH):
   - Preko cijelog ekrana i na telefonu i na desktopu. Snimak je uspravan (720×1272 poslije isijecanja 4 crna reda piksela gore i dolje), pa je na širokom ekranu isječen i uvećan; blago zrno to ublažava. Oštriji kadar na desktopu traži original snimka u većoj rezoluciji (pitanje za @djurisicmedia).
@@ -118,6 +126,15 @@ Lighthouse treba ponoviti na produkcijskoj adresi poslije objave (pravi HTTPS i 
 7. **Originalni logo:** postoji li vektorski fajl?
 8. **Klijenti po imenu:** smijemo li navesti hotele, restorane ili firme za koje su radili (i dobiti njihove logotipe)?
 9. **Hero snimak:** ima li @djurisicmedia original u većoj rezoluciji (ili vodoravnu verziju) za desktop?
+10. **Detalji za tekst** (sajt je sada u prvom licu i traži konkretne podatke; svaki odgovor ide direktno u `src/content/`):
+    - Gdje šiju: sopstvena radionica? U kom gradu?
+    - Koje tkanine najčešće rade (lan, somot, blackout…) i od kojih proizvođača?
+    - Koliko traje izrada od mjerenja do montaže?
+    - Šta znači highlight „Falte 3/1” (gustina nabora) i da li je to nešto po čemu se razlikuju?
+    - Garancija na šivenje i mehanizme?
+    - Smije li tekst „Kako radimo” da potpiše vlasnik, imenom i fotografijom?
+11. **Fotografisanje, pola dana:** radionica, ruke dok šiju, metar na prozoru, tkanine izbliza, vlasnik. Desetak takvih kadrova promijeni sajt više od bilo koje izmjene dizajna.
+12. **Email na domenu** (npr. `info@plazahome.me`) umjesto gmail adrese u podnožju i na kontaktu.
 
 ## Kako se mijenja sadržaj
 
